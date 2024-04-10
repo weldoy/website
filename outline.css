@@ -1,0 +1,35 @@
+body {
+  border: 2px solid red;
+}
+
+footer {
+  border: 4px solid grey;
+}
+
+h1 {
+  border: 4px solid pink;
+}
+
+h2 {
+  border: 4px solid green;
+}
+
+.cardcontainer {
+  border: 4px solid blue;
+}
+
+article {
+  border: 4px solid lightblue;
+}
+
+img {
+  border: 4px solid purple;
+}
+
+nav {
+  border: 4px solid black;
+}
+
+.purchases {
+  border: 4px solid palevioletred;
+}

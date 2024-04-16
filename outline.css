@@ -33,3 +33,7 @@ nav {
 .purchases {
   border: 4px solid palevioletred;
 }
+
+hr {
+  border: 4px solid rgb(39, 126, 180);
+}

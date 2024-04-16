@@ -45,3 +45,13 @@ h1, h2 {
 	border-radius: 10px;
 	margin-right: 10px;
 }
+
+.headdiv {
+	display: block;
+	width: 100%;
+	/* background-color: darkgrey; */
+	border: 2px solid rgb(61, 61, 61);
+	background-image: url("static/logo.png");
+	background-size: contain;
+	color:bisque;
+}

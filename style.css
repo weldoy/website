@@ -47,11 +47,16 @@ h1, h2 {
 }
 
 .headdiv {
-	display: block;
+	position: absolute;
+	right: 0;
 	width: 100%;
-	/* background-color: darkgrey; */
+	background-color: rgb(36, 36, 36);
 	border: 2px solid rgb(61, 61, 61);
-	background-image: url("static/logo.png");
-	background-size: contain;
-	color:bisque;
+	color: whitesmoke;
+}
+
+.assorti {
+	position: relative;
+	top: 60px;
+	margin-bottom: 40px;
 }

@@ -60,3 +60,56 @@ h1, h2 {
 	top: 60px;
 	margin-bottom: 40px;
 }
+
+.navigation{
+	width:100%;
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	align-items:flex-start;
+	flex-wrap:wrap;
+}
+
+.nav-cards {
+	min-width:20%;
+	flex-grow:1;
+	height: 300px;
+}
+
+.wrapper {
+	width: 200px;
+	height: 30px;
+	background-color: #fff4e6;
+  }
+
+input {
+	position: relative;
+	right: 12px;
+	bottom: 10px;
+	background: transparent;
+	border: 1px solid rgb(197, 197, 197);
+  }
+
+form {
+	display: flex;
+}
+
+form button {
+	position: relative;
+	border: 1px solid rgb(197, 197, 197);
+}
+
+.nav-cards img {
+	position: relative;
+	right: 5px;
+}
+
+.nav-cards a {
+	position: relative;
+	right: 8px;
+	text-decoration: none;
+}
+
+.quest {
+	height: 200px;
+}

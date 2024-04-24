@@ -112,4 +112,17 @@ form button {
 
 .quest {
 	height: 200px;
+	margin-top: 20px;
+}
+
+.section-separator-figure{
+	position: absolute;
+	right: 0;
+	width: 100%;
+	background: rgb(36, 36, 36);;
+	border: 1px solid rgb(61, 61, 61);
+}
+
+footer {
+	margin-top: 15px;
 }

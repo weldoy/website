@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.cardcontainer {
+	width:100%;
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	align-items:center;
+	flex-wrap:wrap;
+}
+
+article {
+	margin:.5em;
+	padding:.5em;
+	min-width:20%;
+	flex-grow:1;
+	border:1px solid;
+	height: 300px;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+.card {
+	text-align: center;
+}
+
+.card img {
+	background-position: center;
+}
+
+.purchases p {
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+	border: 3px solid black;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+
+.headdiv {
+	position: absolute;
+	right: 0;
+	width: 100%;
+	background-color: rgb(36, 36, 36);
+	border: 2px solid rgb(61, 61, 61);
+	color: whitesmoke;
+}
+
+.assorti {
+	position: relative;
+	top: 60px;
+	margin-bottom: 40px;
+}
+
+.navigation{
+	width:100%;
+	display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	align-items:flex-start;
+	flex-wrap:wrap;
+}
+
+.nav-cards {
+	min-width:20%;
+	flex-grow:1;
+	height: 300px;
+}
+
+.wrapper {
+	width: 200px;
+	height: 30px;
+  }
+
+input {
+	position: relative;
+	right: 12px;
+	bottom: 10px;
+	background: transparent;
+	border: 1px solid rgb(197, 197, 197);
+  }
+
+form {
+	display: flex;
+}
+
+form button {
+	position: relative;
+	right: 3px;
+	border: 1px solid rgb(197, 197, 197);
+}
+
+.nav-cards img {
+	position: relative;
+	right: 5px;
+}
+
+.nav-cards a {
+	position: relative;
+	right: 8px;
+	text-decoration: none;
+}
+
+.quest {
+	height: 200px;
+	margin-top: 20px;
+}
+
+.section-separator-figure{
+	position: absolute;
+	right: 0;
+	width: 100%;
+	background: rgb(36, 36, 36);;
+	border: 1px solid rgb(61, 61, 61);
+}
+
+footer {
+	margin-top: 15px;
+}

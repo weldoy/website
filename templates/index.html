@@ -15,19 +15,23 @@
         <div class="cardcontainer">
             <article class="card">
                 <p>Футболки</p>
-                <img src="{{ url_for('static', filename='img/futbolka.jpg') }}" alt="футболки" height="250">
+                <a href="{{ url_for('tshorts') }}">
+                    <img src="{{ url_for('static', filename='img/t-shorts.jpg') }}" alt="футболки" height="250"></a>
             </article>
             <article class="card">
-                <p>Спортивные штаны</p>
-                <img src="{{ url_for('static', filename='img/sportivki.jpg') }}" alt="Спортивные штаны" height="250">
+                <p>Штаны | Брюки</p>
+                <a href="{{ url_for('pants') }}">
+                    <img src="{{ url_for('static', filename='img/pants.jpg') }}" alt="Штаны | Брюки" height="250"></a>
             </article>
             <article class="card">
                 <p>Толстовки</p>
-                <img src="{{ url_for('static', filename='img/tolstovka.jpg') }}" alt="Толстовки" height="250">
+                <a href="{{ url_for('hoodies') }}">
+                    <img src="{{ url_for('static', filename='img/hoodies.jpg') }}" alt="Толстовки" height="250"></a>
             </article>
             <article class="card">
-                <p>Трусы и носки</p>
-                <img src="{{ url_for('static', filename='img/trusi.jpg') }}" alt="Трусы и носки" height="250">
+                <p>Нижнее белье</p>
+                <a href="{{ url_for('underwear') }}">
+                    <img src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Нижнее белье" height="250"></a>
             </article>
         </div>
         <div class="purchases">

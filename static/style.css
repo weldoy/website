@@ -107,7 +107,6 @@ form button {
 .nav-cards a {
 	position: relative;
 	right: 8px;
-	text-decoration: none;
 }
 
 .quest {
@@ -119,10 +118,40 @@ form button {
 	position: absolute;
 	right: 0;
 	width: 100%;
-	background: rgb(36, 36, 36);;
+	
 	border: 1px solid rgb(61, 61, 61);
 }
 
 footer {
 	margin-top: 15px;
+}
+
+.backward {
+	position: absolute;
+	top: 140px;
+	background: rgb(36, 36, 36);;
+	border: 2px solid rgb(61, 61, 61);
+	width: 100%;
+	left: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 a:active, h1 a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+	color: grey;
+}
+
+.backward a {
+	color: lightgrey;
+}
+
+.backward a:hover {
+	color: grey;
 }

@@ -115,10 +115,10 @@ form button {
 }
 
 .section-separator-figure{
+	background-color: rgb(36, 36, 36);
 	position: absolute;
 	right: 0;
 	width: 100%;
-	
 	border: 1px solid rgb(61, 61, 61);
 }
 
@@ -133,6 +133,7 @@ footer {
 	border: 2px solid rgb(61, 61, 61);
 	width: 100%;
 	left: 0;
+	text-align: center;
 }
 
 a {
@@ -154,4 +155,30 @@ a:hover {
 
 .backward a:hover {
 	color: grey;
+}
+
+.collections {
+	position: relative;
+	top: 60px;
+	margin-bottom: 40px;
+}
+
+
+.collections {
+	position: relative;
+	top: 70px;
+	margin-bottom: 60px;
+}
+
+.section-separator-figure-collections {
+	background-color: rgb(36, 36, 36);
+	position: absolute;
+	right: 0;
+	width: 100%;
+	border: 1px solid rgb(61, 61, 61);
+	margin-top: 20px;
+}
+
+.footer-collections {
+	margin-top: 40px;
 }

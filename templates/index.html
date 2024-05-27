@@ -34,11 +34,32 @@
                     <img src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Нижнее белье" height="250"></a>
             </article>
         </div>
-        <div class="purchases">
-            <p><a>Корзина</a></p>
+        <a id="open-modal-btn">
+            <div class="purchases"><p>Корзина</p></div>
+        </a>
+
+        <!-- ------------- -->
+
+        <div class="modal" id="my-modal">
+            <div class="modal__box">
+                <button class="modal__close-btn" id="close-my-modal-btn">
+                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                            fill="#333333" />
+                        <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+                    </svg>
+                </button>
+                <h2>Корзина</h2>
+    
+                <p>Здесь вскоре будут находиться ваши покупки :)</p>
+            </div>
         </div>
+    
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+        <!-- ------------- -->
+
         <nav>
-            <!-- <div class="section-separator-figure"></div> -->
             <div class="navigation">
                 <div class="nav-cards quest">
                     <h3>Остались вопросы?</h3>

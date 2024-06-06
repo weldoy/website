@@ -37,17 +37,13 @@ h1, h2 {
 	background-position: center;
 }
 
-.purchases p {
-	text-align: center;
-	width: 100%;
-	font-size: 20px;
-	border: 3px solid black;
-	border-radius: 10px;
-	margin-right: 10px;
-}
-
 .headdiv {
-	position: absolute;
+	display: flex;
+	align-items: center;
+  	justify-content: space-between;
+	flex-direction: row;
+	position: fixed;
+	z-index: 2;
 	right: 0;
 	width: 100%;
 	background-color: rgb(36, 36, 36);
@@ -59,6 +55,7 @@ h1, h2 {
 	position: relative;
 	top: 60px;
 	margin-bottom: 40px;
+	z-index: 1;
 }
 
 .navigation{
@@ -102,6 +99,7 @@ form button {
 .nav-cards img {
 	position: relative;
 	right: 5px;
+	margin: 0;
 }
 
 .nav-cards a {
@@ -111,7 +109,6 @@ form button {
 
 .quest {
 	height: 200px;
-	margin-top: 20px;
 }
 
 .section-separator-figure{
@@ -236,4 +233,23 @@ a:hover {
 
 .modal.open .modal__box {
     transform: scale(1);
+}
+
+.headdiv .back, .headdiv .shop{
+	border: 2px rgb(61, 61, 61) solid;
+	border-radius: 8%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.headdiv a {
+	color: whitesmoke;
+}
+
+.headdiv a:hover {
+	color: grey;
+}
+
+.open-modal-btn {
+	cursor: pointer;
 }

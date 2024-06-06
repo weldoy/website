@@ -8,7 +8,10 @@
 </head>
 <body>
     <header>
-        <div class="headdiv"><h1>Магазин одежды unknxwn</h1></div>
+        <div class="headdiv">
+            <pre class="back"><a href="{{ url_for('index') }}">На главную</a></pre>
+            <h1>Магазин одежды unknxwn</h1><pre class="shop"><a id="open-modal-btn" class="open-modal-btn">Корзина</a></pre>
+        </div>
     </header>
     <main>
         <div class="assorti"><h2>Наш ассортимент</h2></div>
@@ -35,10 +38,6 @@
             </article>
         </div>
 
-        <a id="open-modal-btn">
-            <div class="purchases"><p >Корзина</p></div>
-        </a>
-
         <!-- ------------- -->
 
         <div class="modal" id="my-modal">
@@ -59,7 +58,6 @@
         <script src="{{ url_for('static', filename='index.js') }}"></script>
 
         <!-- ------------- -->
-
         <nav>
             <div class="navigation">
                 <div class="nav-cards quest">
@@ -82,6 +80,8 @@
                     </form>
                     <p>и не пропускайте свежие посты в наших социальных сетях</p>
                     <a href="https://t.me/+e35Bnx9B03o4Mjg6"><img src="{{ url_for('static', filename='img/teleicon 32px.png') }}" alt="telegram"></a>
+                    <a href=""><img src="{{ url_for('static', filename='img/vk.png') }}" alt="vk"></a>
+                    <a href=""><img src="{{ url_for('static', filename='img/wp.png') }}" alt="wp"></a>
                 </div>
             </div>
         </nav>

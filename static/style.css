@@ -31,6 +31,8 @@ h1, h2 {
 
 .card {
 	text-align: center;
+	overflow: hidden;
+	position: relative;
 }
 
 .card img {
@@ -253,3 +255,16 @@ a:hover {
 .open-modal-btn {
 	cursor: pointer;
 }
+
+.abcv {
+	font-size: 14px;
+	color: rgb(104, 104, 104);
+}
+
+.zoom-effect {
+	transition: transform 0.2s;
+}
+
+.zoom-effect:hover {
+	transform: scale(1.05);
+  }

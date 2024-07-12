@@ -23,3 +23,28 @@ document.getElementById("my-modal").addEventListener('click', event => {
     if (event._isClickWithInModal) return;
     event.currentTarget.classList.remove('open');
 });
+
+var size_btn = document.getElementById("sizebtn1");
+size_btn.addEventListener("click", function() {
+  this.classList.add("active_size_btn");
+});
+
+var size_btn = document.getElementById("sizebtn2");
+size_btn.addEventListener("click", function() {
+  this.classList.add("active_size_btn");
+});
+
+var size_btn = document.getElementById("sizebtn3");
+size_btn.addEventListener("click", function() {
+  this.classList.add("active_size_btn");
+});
+
+var size_btn = document.getElementById("sizebtn4");
+size_btn.addEventListener("click", function() {
+  this.classList.add("active_size_btn");
+});
+
+var size_btn = document.getElementById("sizebtn5");
+size_btn.addEventListener("click", function() {
+  this.classList.add("active_size_btn");
+});

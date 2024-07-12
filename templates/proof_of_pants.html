@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title> unknxwn </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- <link rel="stylesheet" href="outline.css"> -->
 </head>
 <body>
@@ -14,29 +16,29 @@
         </div>
     </header>
     <main>
-        <div class="assorti"><h2>Каталог</h2></div>
+        <div class="assorti"><h2>Штаны</h2></div>
         <div class="cardcontainer">
             <article class="card">
-                <p>Футболки</p>
-                <a href="{{ url_for('tshirts') }}">
-                    <img class="zoom-effect" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="футболки" height="250"></a>
-            </article>
-            <article class="card">
-                <p>Штаны</p>
-                <a href="{{ url_for('pants') }}">
-                    <img class="zoom-effect" src="{{ url_for('static', filename='img/pants.jpg') }}" alt="Штаны | Брюки" height="250"></a>
-            </article>
-            <article class="card">
-                <p>Толстовки</p>
-                <a href="{{ url_for('hoodies') }}">
-                    <img class="zoom-effect" src="{{ url_for('static', filename='img/hoodies.jpg') }}" alt="Толстовки" height="250"></a>
-            </article>
-            <article class="card">
-                <p>Нижнее белье</p>
-                <a href="{{ url_for('underwear') }}">
-                    <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Нижнее белье" height="250"></a>
+                    <img class="" src="{{ url_for('static', filename='img/pants.jpg') }}" alt="Штаны" height="270">
             </article>
         </div>
+        <div class="oryr">
+            <h3>3999 руб</h3>
+            <div class="choose_size">
+                <button class="cs_card" id="sizebtn1">XS</button>
+                <button class="cs_card" id="sizebtn2">S</button>
+                <button class="cs_card" id="sizebtn3">M</button>
+                <button class="cs_card" id="sizebtn4">L</button>
+                <button class="cs_card" id="sizebtn5">XL</button>
+            </div>
+            <ul>
+                <p>Собственное произодство</p>
+                <p>Качественные материалы</p>
+                <p>Гарантия - 1 год</p>
+            </ul>
+        </div>
+
+        <button class="btn btn-2 btn-sep icon-cart">add to cart</button>
 
         <!-- ------------- -->
 
@@ -68,23 +70,11 @@
                         <li class="abcv">Задай вопрос менеджеру в <a href="https://t.me/+e35Bnx9B03o4Mjg6">Телеграм</a></li>
                     </ul>
                 </div>
-                <div class="nav-cards">
-                    <h3>Подпишитесь на рассылку!</h3>
-                    <p class="abcv">Будьте в курсе всех раcпродаж, акций и новостей!</p>
-                    <p class="abcv">Мы будем присылать вам только самое важное и интересное</p>
-                    <p class="abcv">И не пропускайте свежие посты в наших социальных сетях</p>
-                    <!--                                    -->
-                    <form action="">
-                        <div class="wrapper">
-                            <input type="email" name="email" id="email" placeholder="Ваш email" required>
-                        </div>
-                        <button>></button>
-                    </form>
-                    <!--                                    -->
+                <!-- <div class="nav-cards">
                     <a href="https://t.me/+e35Bnx9B03o4Mjg6"><img src="{{ url_for('static', filename='img/teleicon 32px.png') }}" alt="telegram"></a>
                     <a href=""><img src="{{ url_for('static', filename='img/vk.png') }}" alt="vk"></a>
                     <a href=""><img src="{{ url_for('static', filename='img/wp.png') }}" alt="wp"></a>
-                </div>
+                </div> -->
             </div>
         </nav>
         <div class="section-separator-figure"></div>

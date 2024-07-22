@@ -24,27 +24,9 @@ document.getElementById("my-modal").addEventListener('click', event => {
     event.currentTarget.classList.remove('open');
 });
 
-var size_btn = document.getElementById("sizebtn1");
-size_btn.addEventListener("click", function() {
-  this.classList.add("active_size_btn");
-});
-
-var size_btn = document.getElementById("sizebtn2");
-size_btn.addEventListener("click", function() {
-  this.classList.add("active_size_btn");
-});
-
-var size_btn = document.getElementById("sizebtn3");
-size_btn.addEventListener("click", function() {
-  this.classList.add("active_size_btn");
-});
-
-var size_btn = document.getElementById("sizebtn4");
-size_btn.addEventListener("click", function() {
-  this.classList.add("active_size_btn");
-});
-
-var size_btn = document.getElementById("sizebtn5");
-size_btn.addEventListener("click", function() {
-  this.classList.add("active_size_btn");
+document.querySelector(".choose_size").addEventListener("click", function(e) {
+  const o = e.target.closest('.cs_card')
+  if (!o) return
+  this.querySelectorAll(".active_size_btn").forEach(o => o.classList.remove("active_size_btn"))
+  o.classList.add("active_size_btn");
 });

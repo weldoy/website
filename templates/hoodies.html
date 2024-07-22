@@ -7,14 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
+    <main>
         <div class="headdiv">
             <pre class="back"><a href="{{ url_for('index') }}">На главную</a></pre>
-            <h1>Магазин одежды unknxwn</h1><pre class="shop"><a id="open-modal-btn" class="open-modal-btn">Корзина</a></pre>
+            <h1>unknxwn shop</h1><pre class="shop"><a id="open-modal-btn" class="open-modal-btn">Корзина</a></pre>
         </div>
-    </header>
-    <main>
-        
         <!-- ------------- -->
 
         <div class="modal" id="my-modal">
@@ -80,9 +77,8 @@
                     <img class="zoom-effect" src="{{ url_for('static', filename='img/hoodies.jpg') }}" alt="Штаны" height="250"></a>
             </article>
         </div>
-        <div class="section-separator-figure-collections"></div>
     </main>
-    <footer class="footer-collections">
+    <footer>
         <p>&copy; 2024 интернет магазин unknxwn</p>
     </footer>
 </body>

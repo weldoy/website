@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<!-- <div class="assorti"><h2>Корзина</h2></div> -->
+<div class="headcart">
+    <h2 class="eqwro">Корзина</h2>
+    <a href="{{ url_for('index') }}" class="eihrgb">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.6066 21.3934C22.2161 21.0029 21.5829 21.0029 21.1924 21.3934C20.8019 21.7839 20.8019 22.4171 21.1924 22.8076L22.6066 21.3934ZM40.9914 42.6066C41.3819 42.9971 42.0151 42.9971 42.4056 42.6066C42.7961 42.2161 42.7961 41.5829 42.4056 41.1924L40.9914 42.6066ZM21.1924 41.1924C20.8019 41.5829 20.8019 42.2161 21.1924 42.6066C21.5829 42.9971 22.2161 42.9971 22.6066 42.6066L21.1924 41.1924ZM42.4056 22.8076C42.7961 22.4171 42.7961 21.7839 42.4056 21.3934C42.0151 21.0029 41.3819 21.0029 40.9914 21.3934L42.4056 22.8076ZM21.1924 22.8076L40.9914 42.6066L42.4056 41.1924L22.6066 21.3934L21.1924 22.8076ZM22.6066 42.6066L42.4056 22.8076L40.9914 21.3934L21.1924 41.1924L22.6066 42.6066Z" fill="black"/>
+        </svg></a>
+</div>
+<div>
+    <div>
+        <p class="yrti">Москва и область</p>
+        <div class="toprot">
+            <p class="abcvt">Вскоре будут доступны другие регионы.</p>
+            <p class="abcvt">Доставку и способ оплаты можно выбрать при оформлении заказа.</p>
+        </div>
+    </div>
+    <div class="order">
+        <h3>Ваш заказ</h3>
+        <div class="ordercardcontainer">
+            <article class="order_card">
+                <img src="{{ url_for('static', filename='img/test_snickers.jpg') }}" alt="test" width="110px" height="110px">
+                <div class="flex_row">
+                    <p class="rpew">Мужские кроссовки New Balance BB480</p> 
+                    <p class="oeruty">Арт : BB480LEC-11</p>
+                    <p class="oeruty">Цвет: Серый</p>
+                    <p class="oeruty">44 RUS / 45 EU / 29 СМ</p>
+                </div>
+                <p class="hgkfte">14999 руб</p>
+            </article>
+            <article class="order_card">
+                <img src="{{ url_for('static', filename='img/test_snickers.jpg') }}" alt="test" width="110px" height="110px">
+                <div class="flex_row">
+                    <p class="rpew">Мужские кроссовки New Balance BB480</p> 
+                    <p class="oeruty">Арт : BB480LEC-11</p>
+                    <p class="oeruty">Цвет: Серый</p>
+                    <p class="oeruty">44 RUS / 45 EU / 29 СМ</p>
+                </div>
+                <p class="hgkfte">14999 руб</p>
+            </article>
+        </div>
+    </div>
+    <div class="payment">
+
+    </div>
+</div>
+
+<!-- ------------- -->
+
+<div class="modal" id="my-modal">
+    <div class="modal__box">
+        <button class="modal__close-btn" id="close-my-modal-btn">
+            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+                    fill="#333333" />
+                <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
+            </svg>
+        </button>
+        <h2>Корзина</h2>
+
+        <p>Здесь вскоре будут находиться ваши покупки :)</p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
+<!-- ------------- -->
+
+<div class="section-separator-figure"></div>
+
+{% endblock %}

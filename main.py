@@ -12,6 +12,10 @@ def hello():
     <link rel="stylesheet" href="static/style.css">
     <h1>test</h1>
     Ссылка на <a href="{url_for('index')}">index</a> страницу<br>
+    <p></p>
+    Ссылка на <a href="{url_for('base')}">base</a> страницу<br>
+    <p></p>
+    Ссылка на <a href="{url_for('order')}">order</a> страницу<br>
     """
 
 
@@ -84,6 +88,13 @@ def main():
 
 # <------------------------------->
 
+@app.route('/base')
+def base():
+    return render_template('base.html')
+
+@app.route('/order')
+def order():
+    return render_template('order.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

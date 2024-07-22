@@ -2,9 +2,9 @@
 
 * {
 	margin: 0;
-	padding: 10px;
 	box-sizing: border-box;
 	font-family: 'Ubuntu', sans-serif;
+	padding: 10px;
 }
 
 .cardcontainer {
@@ -16,20 +16,17 @@
 	flex-wrap:wrap;
 }
 
-article {
+h1, h2 {
+	text-align: center;
+}
+
+.card {
 	margin:.5em;
 	padding:.5em;
 	min-width:20%;
 	flex-grow:1;
 	border:1px solid;
 	height: 300px;
-}
-
-h1, h2 {
-	text-align: center;
-}
-
-.card {
 	text-align: center;
 	overflow: hidden;
 	position: relative;
@@ -45,7 +42,8 @@ h1, h2 {
 	align-items: center;
   	justify-content: space-between;
 	flex-direction: row;
-	position: fixed;
+	position: sticky;
+	top: 0;
 	z-index: 2;
 	right: 0;
 	width: 100%;
@@ -55,9 +53,7 @@ h1, h2 {
 }
 
 .assorti {
-	position: relative;
-	top: 60px;
-	margin-bottom: 40px;
+	margin-bottom: -20px;
 	z-index: 1;
 }
 
@@ -114,28 +110,6 @@ form button {
 	height: 200px;
 }
 
-.section-separator-figure{
-	background-color: rgb(36, 36, 36);
-	position: absolute;
-	right: 0;
-	width: 100%;
-	border: 1px solid rgb(61, 61, 61);
-}
-
-footer {
-	margin-top: 15px;
-}
-
-.backward {
-	position: absolute;
-	top: 140px;
-	background: rgb(36, 36, 36);;
-	border: 2px solid rgb(61, 61, 61);
-	width: 100%;
-	left: 0;
-	text-align: center;
-}
-
 a {
 	text-decoration: none;
 }
@@ -149,34 +123,10 @@ a:hover {
 	color: grey;
 }
 
-.backward a {
-	color: lightgrey;
-}
-
-.backward a:hover {
-	color: grey;
-}
-
 .collections {
 	position: relative;
-	top: 70px;
-	margin-bottom: 60px;
+	top: 10px;
 }
-
-.section-separator-figure-collections {
-	background-color: rgb(36, 36, 36);
-	position: absolute;
-	right: 0;
-	width: 100%;
-	border: 1px solid rgb(61, 61, 61);
-	margin-top: 20px;
-}
-
-.footer-collections {
-	margin-top: 40px;
-}
-
-/* ------------------ */
 
 .modal {
     position: fixed;
@@ -241,8 +191,8 @@ a:hover {
 .headdiv .back, .headdiv .shop{
 	border: 2px rgb(31, 31, 31) solid;
 	border-radius: 8%;
-	margin-left: 10px;
-	margin-right: 10px;
+	/* margin-left: 10px;
+	margin-right: 10px; */
 	background-color: rgb(53, 53, 53);
 }
 
@@ -258,9 +208,17 @@ a:hover {
 	cursor: pointer;
 }
 
+ul .abcv {
+	font-size: 14px;
+	color: rgb(104, 104, 104);
+	margin-bottom: -5px;
+}
+
 .abcv {
 	font-size: 14px;
 	color: rgb(104, 104, 104);
+	margin-bottom: -2.5px;
+	margin-left: 10px;
 }
 
 .zoom-effect {
@@ -274,12 +232,6 @@ a:hover {
 .oryr {
 	text-align: center;
 }
-
-/* .add_to_cart {
-	position: relative;
-	left: 50%;
-	transform: translate(-50%, 0);
-} */
 
 /* < ----------------- > */
 
@@ -401,5 +353,108 @@ a:hover {
 }
 
 .active_size_btn:hover {
-		background-color: rgb(165, 165, 165);
-	}
+	background-color: rgb(165, 165, 165);
+}
+
+.oryr ul p {
+	color: rgb(104, 104, 104);
+	font-weight: bold;
+}
+
+.yrti {
+	color: rgb(0, 145, 145);
+}
+
+.toprot {
+	padding: 0;
+	margin-left: 15px;
+}
+
+.abcvt {
+	font-size: 14px;
+	color: rgb(104, 104, 104);
+	margin-bottom: -7px;
+}
+
+.ordercardcontainer {
+	width:100%;
+	display:flex;
+	flex-direction: column;
+	justify-content:flex-start;
+	flex-wrap:wrap;
+	margin-left: 15px;
+	max-width: 650px;
+}
+
+.order_card {
+	display: flex;
+	height: 90px;
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 10px;
+	flex-wrap:wrap;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.order_card img {
+	position: relative;
+	bottom: 20px;
+	right: 5px;
+}
+
+.oeruty {
+	font-size: 12px;
+	position: relative;
+	margin-bottom: -15px;
+	top: -15px;
+	color: rgb(104, 104, 104);
+	left: 3px;
+}
+
+.flex_row {
+	display: flex;
+	flex-direction: column;
+}
+
+.rpew {
+	font-size: 15px;
+	margin-top: -12px;
+	
+}
+
+.hgkfte {
+	position: relative;
+	margin-left: auto;
+	top: 25px;
+	color: rgb(104, 104, 104);
+}
+
+.eqwro {
+	margin-top: -10px;
+	margin-left: 45%;
+}
+
+.headcart{
+	display: flex;
+	width: 100%;
+	height: 50px;
+}
+
+.eihrgb {
+	margin-left: auto;
+	margin-top: -27.5px;
+}
+
+footer p {
+	color: grey;
+	margin-left: -20px;
+}
+
+.section-separator-figure{
+	position: absolute;
+	right: 0;
+	width: 100%;
+	border: 1px solid rgb(139, 139, 139);
+	padding: 0;
+}

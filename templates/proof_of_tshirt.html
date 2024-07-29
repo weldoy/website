@@ -1,81 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> unknxwn </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="outline.css"> -->
-</head>
-<body>
-    <main>
-        <div class="headdiv">
-            <pre class="back"><a href="{{ url_for('index') }}">На главную</a></pre>
-            <h1>unknxwn shop</h1><pre class="shop"><a id="open-modal-btn" class="open-modal-btn">Корзина</a></pre>
-        </div>
-        <div class="assorti"><h2>Футболка</h2></div>
-        <div class="cardcontainer">
-            <article class="card">
-                    <img class="" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="футболки" height="270">
-            </article>
-        </div>
-        <div class="oryr">
-            <h3>2499 руб</h3>
-            <div class="choose_size">
-                <button class="cs_card">XS</button>
-                <button class="cs_card">S</button>
-                <button class="cs_card">M</button>
-                <button class="cs_card">L</button>
-                <button class="cs_card">XL</button>
-            </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="assorti"><h2>Футболка</h2></div>
+<div class="cardcontainer">
+    <article class="card">
+            <img class="" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="футболки" height="270">
+    </article>
+</div>
+<div class="oryr">
+    <h3>2499 руб</h3>
+    <div class="choose_size">
+        <button class="cs_card">XS</button>
+        <button class="cs_card">S</button>
+        <button class="cs_card">M</button>
+        <button class="cs_card">L</button>
+        <button class="cs_card">XL</button>
+    </div>
+    <ul>
+        <p>Собственное произодство</p>
+        <p>Хлопок - 100%</p>
+        <p>Качественный принт</p>
+    </ul>
+</div>
+
+<div class="box_4_btn"><button data-v-c3114ba2="" class="app-button basket-price__submit width-100 paypose" type="submit">
+    Добавить в корзину
+</button></div>
+<nav>
+    <div class="navigation">
+        <div class="nav-cards quest">
+            <h3>Остались вопросы?</h3>
+            <p class="abcv">Мы рады ответить на любые вопросы ежедневно с 10:00 до 23:00</p>
             <ul>
-                <p>Собственное произодство</p>
-                <p>Хлопок - 100%</p>
-                <p>Качественный принт</p>
+                <li class="abcv">Позвоните на номер 8 (123) 456-78-90</li>
+                <li class="abcv">Задай вопрос менеджеру в <a href="https://t.me/+e35Bnx9B03o4Mjg6">Телеграм</a></li>
             </ul>
         </div>
-
-        <div class="box_4_btn"><button data-v-c3114ba2="" class="app-button basket-price__submit width-100 paypose" type="submit">
-            Добавить в корзину
-        </button></div>
-
-        <!-- ------------- -->
-
-        <div class="modal" id="my-modal">
-            <div class="modal__box">
-                <button class="modal__close-btn" id="close-my-modal-btn">
-                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
-                            fill="#333333" />
-                        <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
-                    </svg>
-                </button>
-                <h2>Корзина</h2>
-    
-                <p>Здесь вскоре будут находиться ваши покупки :)</p>
-            </div>
-        </div>
-    
-        <script src="{{ url_for('static', filename='index.js') }}"></script>
-
-        <!-- ------------- -->
-        <nav>
-            <div class="navigation">
-                <div class="nav-cards quest">
-                    <h3>Остались вопросы?</h3>
-                    <p class="abcv">Мы рады ответить на любые вопросы ежедневно с 10:00 до 23:00</p>
-                    <ul>
-                        <li class="abcv">Позвоните на номер 8 (123) 456-78-90</li>
-                        <li class="abcv">Задай вопрос менеджеру в <a href="https://t.me/+e35Bnx9B03o4Mjg6">Телеграм</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="section-separator-figure"></div>
-    </main>
-    <footer>
-        <p>&copy; 2024 интернет магазин unknxwn</p>
-    </footer>
-</body>
-</html>
+    </div>
+</nav>
+<div class="section-separator-figure"></div>
+{% endblock content %}

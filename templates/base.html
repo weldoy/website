@@ -5,17 +5,17 @@
         <meta charset="UTF-8">
         <title> unknxwn </title>
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <!-- <link rel="stylesheet" href="outline.css"> -->
     </head>
-{% endblock %}
-
+{% endblock head %}
 <body>
     <main>
-        {% block content %}
+            {% block header%}
             <div class="headdiv">
                     <pre class="back"><a href="{{ url_for('index') }}">На главную</a></pre>
                     <h1>unknxwn shop</h1><pre class="shop"><a id="open-modal-btn" class="open-modal-btn">Корзина</a></pre>
                 </div>
+            {% endblock header%}
+
             {% block cart %}
                 <div class="modal" id="my-modal">
                     <div class="modal__box">
@@ -33,9 +33,9 @@
                 </div>
             
                 <script src="{{ url_for('static', filename='index.js') }}"></script>
-            {% endblock %}
-            <div class="section-separator-figure"></div>
-        {% endblock %}
+            {% endblock cart %}
+
+            {% block content%}{% endblock content%}
     </main>
     <footer>
         <p>&copy; 2024 интернет магазин unknxwn</p>

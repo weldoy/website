@@ -3,7 +3,7 @@ from __init__ import app
 
 
 @app.route('/')
-def hello():
+def home():
     return f"""
     <link rel="stylesheet" href="{ url_for('static', filename='style.css') }">
     <h1>test</h1>

@@ -110,7 +110,7 @@ form button {
 	height: 200px;
 }
 
-a {
+a{
 	text-decoration: none;
 }
 
@@ -195,7 +195,7 @@ a:hover {
 }
 
 .headdiv a:hover {
-	color: grey;
+	color: rgb(190, 190, 190);
 }
 
 .open-modal-btn {
@@ -454,4 +454,8 @@ footer p {
 
 .paypose {
 	right: 20px;
+}
+
+.atg:hover{
+	color: blue
 }

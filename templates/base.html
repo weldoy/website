@@ -9,12 +9,13 @@
 {% endblock head %}
 <body>
     <main>
-            {% block header%}
-            <div class="headdiv">
-                    <pre class="back"><a href="{{ url_for('index') }}">На главную</a></pre>
-                    <h1>unknxwn shop</h1><pre class="shop"><a id="open-modal-btn" class="open-modal-btn">Корзина</a></pre>
-                </div>
-            {% endblock header%}
+        {% block header%}
+        <div class="headdiv">
+            <div class="buttons_headdiv"><a href="{{ url_for('index') }}">Главная</a></div>
+            <h1 class="headdiv_name">unknxwn shop</h1>
+            <div class="buttons_headdiv"><a href="{{ url_for('order') }}">Корзина</a></div>
+        </div>
+        {% endblock header%}
 
             {% block cart %}
                 <div class="modal" id="my-modal">

@@ -3,21 +3,22 @@ from __init__ import app
 
 
 @app.route('/')
-def home():
-    return f"""
-    <link rel="stylesheet" href="{ url_for('static', filename='style.css') }">
-    <h1>test</h1>
-    Ссылка на <a href="{url_for('index')}">index</a> страницу<br>
-    <p></p>
-    Ссылка на <a href="{url_for('base')}">base</a> страницу<br>
-    <p></p>
-    Ссылка на <a href="{url_for('order')}">order</a> страницу<br>
-    """
-
-
-@app.route('/index')
 def index():
-     return render_template('index.html')
+    return render_template('index.html')
+    # return f"""
+    # <link rel="stylesheet" href="{ url_for('static', filename='style.css') }">
+    # <h1>test</h1>
+    # Ссылка на <a href="{url_for('index')}">index</a> страницу<br>
+    # <p></p>
+    # Ссылка на <a href="{url_for('base')}">base</a> страницу<br>
+    # <p></p>
+    # Ссылка на <a href="{url_for('order')}">order</a> страницу<br>
+    # """
+
+
+# @app.route('/index')
+# def index():
+#      return render_template('index.html')
 
 
 @app.route('/tshirts')
@@ -68,3 +69,13 @@ def base():
 @app.route('/order')
 def order():
     return render_template('order.html')
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/register')
+def register():
+    return render_template('register.html')

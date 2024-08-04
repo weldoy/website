@@ -37,21 +37,6 @@ h1, h2 {
 	background-position: center;
 }
 
-.headdiv {
-	display: flex;
-	align-items: center;
-  	justify-content: space-between;
-	flex-direction: row;
-	position: sticky;
-	top: 0;
-	z-index: 2;
-	right: 0;
-	width: 100%;
-	background-color: rgb(36, 36, 36);
-	border: 2px solid rgb(61, 61, 61);
-	color: whitesmoke;
-}
-
 .assorti {
 	margin-bottom: -20px;
 	z-index: 1;
@@ -182,20 +167,6 @@ a:hover {
 
 .modal.open .modal__box {
     transform: scale(1);
-}
-
-.headdiv .back, .headdiv .shop{
-	border: 2px rgb(31, 31, 31) solid;
-	border-radius: 8%;
-	background-color: rgb(53, 53, 53);
-}
-
-.headdiv a {
-	color: whitesmoke;
-}
-
-.headdiv a:hover {
-	color: rgb(190, 190, 190);
 }
 
 .open-modal-btn {
@@ -458,4 +429,33 @@ footer p {
 
 .atg:hover{
 	color: blue
+}
+
+.headdiv {
+	display: flex;
+	align-items: center;
+  	justify-content: space-between;
+	flex-direction: row;
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	right: 0;
+	width: 100%;
+	background-color: rgb(36, 36, 36);
+	border: 2px solid rgb(61, 61, 61);
+	color: whitesmoke;
+}
+
+.buttons_headdiv{
+	border: 2px rgb(31, 31, 31) solid;
+	border-radius: 8%;
+	background-color: rgb(53, 53, 53);
+}
+
+.headdiv a {
+	color: whitesmoke;
+}
+
+.headdiv a:hover {
+	color: rgb(190, 190, 190);
 }

@@ -37,8 +37,11 @@
 
             {% block content%}{% endblock content%}
     </main>
-    <footer>
-        <p>&copy; 2024 интернет магазин unknxwn</p>
+{% block footer %}
+    <footer class="flex-footer">
+        <p class="footer-name">&copy; 2024 интернет магазин unknxwn</p>
+        <a href="{{ url_for('login') }}" class="footer-log">Личный кабинет</a>
     </footer>
+{% endblock footer %}
 </body>
 </html>

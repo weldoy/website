@@ -1,5 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    <div class="container_auth">
+        <h2 class="authnamecon regnameregister">Регистрация</h2>
+        <a href="{{ url_for('login') }}" class="auth-register-btn">Уже есть аккаунт?</a>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class=flashes>
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form id="signup" method="post" autocomplete="off">
+            <input class="auth-form" type="text" name="login" placeholder="Логин" required>
+            <input class="pass-form" type="password" name="password" placeholder="Пароль" required>
+            <input class="pass-form" type="password" name="password2" placeholder="Подтвердите пароль" required>
+            <button class="btn-auth-form" type="submit">Войти</button>
+        </form>
+    </div>
+    <div class="section-separator-figure"></div>
 {% endblock content %}
+
+{% block footer %}
+<footer>
+    <p>&copy; 2024 интернет магазин unknxwn</p>
+</footer>
+{% endblock footer %}

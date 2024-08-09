@@ -4,9 +4,18 @@
     <div class="container_auth">
         <h2 class="authnamecon">Авторизация</h2>
         <a href="{{ url_for('register') }}" class="auth-register-btn">Регистрация</a>
-        <form id="signin" method="" action="" autocomplete="off">
-            <input class="auth-form" type="text" id="user" name="user" placeholder="Логин" required>
-            <input class="pass-form" type="password" id="pass" name="pass" placeholder="Пароль" required>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class=flashes>
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form id="signin" method="post" autocomplete="off">
+            <input class="auth-form" type="text" name="login" placeholder="Логин" required>
+            <input class="pass-form" type="password" name="password" placeholder="Пароль" required>
             <button class="btn-auth-form" type="submit">Войти</button>
         </form>
     </div>

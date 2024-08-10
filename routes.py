@@ -73,7 +73,7 @@ def login():
         if user and check_password_hash(user.password, password):
             login_user(user)
         
-            next_page = request.args.get('next')
+            next_page = request.args.get('next', 1)
 
             return redirect(next_page)
         else:
@@ -119,3 +119,8 @@ def redirect_to_signin(response):
         return redirect(url_for('login') + '?next=' + request.url)
     
     return response
+
+
+@app.route('/personal', methods=['GET'])
+def personal():
+    return render_template('personal_cab.html')

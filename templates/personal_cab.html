@@ -2,6 +2,12 @@
 
 {% block content %}
     <h2>Личный кабинет</h2>
+    <div class="personal-flex-box-info">   
+        <p>Ваше имя профиля - {{ username[0].login }}</p>
+        <p>Ваш id профиля - {{ username[0].id }}-</p>
+        <a href="{{ url_for('logout') }}" class="footer-log child_from_personal-flex-box">Выйти из аккаунта</a>
+    </div>
+
     <div class="section-separator-figure"></div>
 {% endblock content %}
 

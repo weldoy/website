@@ -6,57 +6,57 @@ from __init__ import app, db
 from models import User
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', "POST"])
 def index():
     return render_template('index.html')
 
 
-@app.route('/tshirts', methods=['GET'])
+@app.route('/tshirts', methods=['GET', "POST"])
 def tshirts():
     return render_template('t-shirts.html')
 
 
-@app.route('/pants', methods=['GET'])
+@app.route('/pants', methods=["GET", "POST"])
 def pants():
     return render_template('pants.html')
 
 
-@app.route('/hoodies', methods=['GET'])
+@app.route('/hoodies', methods=["GET", "POST"])
 def hoodies():
     return render_template('hoodies.html')
 
 
-@app.route('/underwear', methods=['GET'])
+@app.route('/underwear', methods=["GET", "POST"])
 def underwear():
     return render_template('underwear.html')
 
 
-@app.route('/proof_of_tshirt', methods=['GET'])
+@app.route('/proof_of_tshirt', methods=["GET", "POST"])
 def proof_of_tshirt():
     return render_template('proof_of_tshirt.html')
 
 
-@app.route('/proof_of_pants', methods=['GET'])
+@app.route('/proof_of_pants', methods=["GET", "POST"])
 def proof_of_pants():
     return render_template('proof_of_pants.html')
 
 
-@app.route('/proof_of_hoodies', methods=['GET'])
+@app.route('/proof_of_hoodies', methods=["GET", "POST"])
 def proof_of_hoodies():
     return render_template('proof_of_hoodies.html')
 
 
-@app.route('/proof_of_underwear', methods=['GET'])
+@app.route('/proof_of_underwear', methods=["GET", "POST"])
 def proof_of_underwear():
     return render_template('proof_of_underwear.html')
 
 
-@app.route('/base', methods=['GET'])
+@app.route('/base', methods=["GET", "POST"])
 def base():
     return render_template('base.html')
 
 
-@app.route('/order', methods=['GET'])
+@app.route('/order', methods=["GET", "POST"])
 @login_required
 def order():
     return render_template('order.html')
@@ -121,6 +121,8 @@ def redirect_to_signin(response):
     return response
 
 
-@app.route('/personal', methods=['GET'])
+@app.route('/personal', methods=["GET", "POST"])
+@login_required
 def personal():
-    return render_template('personal_cab.html')
+    username = User.query.order_by(User.login).all()
+    return render_template('personal_cab.html', username=username)

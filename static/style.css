@@ -547,3 +547,13 @@ footer p {
 	border-radius: 5px;
 	background-color: rgb(218, 218, 218);	
 }
+
+.personal-flex-box-info {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.child_from_personal-flex-box {
+	margin-left: auto;
+}

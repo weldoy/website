@@ -124,5 +124,5 @@ def redirect_to_signin(response):
 @app.route('/personal', methods=["GET", "POST"])
 @login_required
 def personal():
-    username = User.query.order_by(User.login).all()
-    return render_template('personal_cab.html', username=username)
+    userdata = User.query.all()
+    return render_template('personal_cab.html', userdata=userdata)

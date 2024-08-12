@@ -3,7 +3,9 @@
 {% block head %}
     <head>
         <meta charset="UTF-8">
+        {% block title %}
         <title> unknxwn </title>
+        {% endblock title %}
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
 {% endblock head %}

@@ -96,12 +96,15 @@ def register():
     login = request.form.get('login')
     password = request.form.get('password')
     password2 = request.form.get('password2')
+    login_old = User.query.order_by(User.login).all()
 
     if request.method == "POST":
         if not (login or password or password2):
             flash('Пожалуйста заполните поля')
         elif password != password2:
             flash('Пароли не совпадают')
+        if not login in login_old:
+            flash('Такой логин уже существует')
         else:
             hash_pwd = generate_password_hash(password)
             new_user = User(login=login, password=hash_pwd)

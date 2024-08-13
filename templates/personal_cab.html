@@ -5,14 +5,22 @@
 {% endblock title %}
 
 {% block content %}
-    <h2>Личный кабинет</h2>
-
-    <div class="personal-flex-box-info">  
-        <p>Ваше имя профиля - {{current_user.login}} </p>
-        <p>Ваш id профиля - {{current_user.id}} - </p>
+    <h2 class="namepersonalpage">Личный кабинет</h2>
+    <style>
+        .namepersonalpage {
+            margin-top: 5px;
+        }
+    </style>
+    <div class="personal_page">
+        <img class="my_avatar" src="{{ url_for('static', filename='img/my_avatar.jpg') }}" alt="Аватарка">
+        <div class="personal-flex-box-info">  
+            <p>Ваше имя профиля - {{current_user.login}} </p>
+            <p>Ваш id профиля - {{current_user.id}} - </p>
+            <p>Ваш email - testmail123@gmail.com</p>
+            <p>Ваш номер телефона - 8 123 456 78 90</p>
+        </div>
         <a href="{{ url_for('logout') }}" class="footer-log child_from_personal-flex-box">Выйти из аккаунта</a>
     </div>
-
     <div class="section-separator-figure"></div>
 {% endblock content %}
 

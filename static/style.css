@@ -551,9 +551,38 @@ footer p {
 .personal-flex-box-info {
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: row;
+	flex-direction: column;
+	border: 2px solid rgb(175, 175, 175);
+	border-radius: 5px;
+	width: 60%;
+	margin-left: auto;
+	height: 40%;
 }
 
 .child_from_personal-flex-box {
+	margin-bottom: auto;
+	position: relative;
+	bottom: 200px;
+}
+
+.personal_page {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 15px;
 	margin-left: auto;
+    margin-right: auto;
+	min-width: 400px;
+	max-width: 600px;
+	height: 600px;
+	border: 2px solid rgb(156, 156, 156);
+	border-radius: 5px;
+	margin-bottom: 70px;
+}
+
+.my_avatar {
+	border: 2px solid rgb(109, 109, 109);
+	border-radius: 5px;
+	background-color: rgb(218, 218, 218);
+	width: 150px;
+	height: 150px;
 }

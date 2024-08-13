@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, flash, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 
 from __init__ import app, db
 from models import User
@@ -124,5 +124,5 @@ def redirect_to_signin(response):
 @app.route('/personal', methods=["GET", "POST"])
 @login_required
 def personal():
-    userdata = User.query.all()
-    return render_template('personal_cab.html', userdata=userdata)
+    now_user = current_user
+    return render_template('personal_cab.html', current_user=now_user)

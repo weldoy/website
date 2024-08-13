@@ -8,10 +8,8 @@
     <h2>Личный кабинет</h2>
 
     <div class="personal-flex-box-info">  
-        {% for el in userdata %} 
-        <p>Ваше имя профиля - {{ el.login }}</p>
-        <p>Ваш id профиля - {{ el.id }}-</p>
-        {% endfor %}
+        <p>Ваше имя профиля - {{current_user.login}} </p>
+        <p>Ваш id профиля - {{current_user.id}} - </p>
         <a href="{{ url_for('logout') }}" class="footer-log child_from_personal-flex-box">Выйти из аккаунта</a>
     </div>
 

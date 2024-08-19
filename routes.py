@@ -132,3 +132,10 @@ def redirect_to_signin(response):
 def personal():
     now_user = current_user
     return render_template('personal_cab.html', current_user=now_user)
+
+
+@app.route('/admin', methods=["GET", "POST"])
+@login_required
+def admin():
+    goodsname = request.form.get('goodsname')
+    return render_template('admin.html')

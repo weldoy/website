@@ -3,7 +3,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 
 from __init__ import app, db
-from models import User
+from models import User, Cart
 
 
 @app.route('/', methods=['GET', "POST"])
@@ -138,4 +138,21 @@ def personal():
 @login_required
 def admin():
     goodsname = request.form.get('goodsname')
+    goodsold = Cart.query.order_by(Cart.product).all()
+    goods_list = []
+    for el in goodsold:
+        goods_list.append(el.product)
+
+    if request.method == "POST":
+        if not (goodsname):
+            flash('Пожалуйста заполните поля')
+        elif goodsname in goods_list:
+            flash('Такой товар уже существует!')
+        else:
+            flash('Товар добавлен в базу данных')
+            new_goods = Cart(product=goodsname)
+            db.session.add(new_goods)
+            db.session.commit()
+
+            return redirect(url_for('admin'))
     return render_template('admin.html')

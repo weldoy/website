@@ -7,7 +7,7 @@
 {% block content %}
     <div class="container_auth">
         <h2 class="authnamecon">Авторизация</h2>
-        <a href="{{ url_for('register') }}" class="auth-register-btn">Регистрация</a>
+        <a href="{{ url_for('basepage') }}" class="auth-register-btn">Регистрация</a>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <div class=flashes>

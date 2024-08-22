@@ -156,3 +156,22 @@ def admin():
 
             return redirect(url_for('admin'))
     return render_template('admin.html')
+
+
+@app.route('/basepage', methods=["GET", "POST"])
+@login_required
+def basepage():
+    goods = Cart.query.order_by(Cart.date.desc()).all()
+    return render_template('basepage.html', goods=goods)
+
+
+@app.route('/basepage/<int:id>/complete')
+def complete_task(id):
+    goods = Cart.query.get_or_404(id)
+
+    try:
+        db.session.delete(goods)
+        db.session.commit()
+        return redirect('/basepage')
+    except:
+        'Произошла ошибка при удалении товара'

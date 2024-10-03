@@ -175,3 +175,8 @@ def complete_task(id):
         return redirect('/basepage')
     except:
         'Произошла ошибка при удалении товара'
+
+
+@app.route('/1')
+def error1():
+    return redirect('/')

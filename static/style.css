@@ -613,4 +613,5 @@ footer p {
 
 .completebtn:hover {
 	background-color: rgb(189, 189, 189);
+	color: rgb(0, 0, 0);
 }

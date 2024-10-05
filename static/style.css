@@ -626,6 +626,7 @@ footer p {
 }
 
 .bd-adminpage, .adm-adminpage{
+	margin-top: 10px;
 	height: 40px;
 	margin-right: 0;
 }

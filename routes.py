@@ -189,3 +189,19 @@ def complete_task(id):
 @app.route('/1')
 def error1():
     return redirect('/')
+
+@app.route('/users', methods=["GET", "POST"])
+def users():
+    users = User.query.order_by(User.login).all()
+    return render_template('users.html', users=users)
+
+@app.route('/users/<int:id>/delete')
+def delete_user(id):
+    users = User.query.get_or_404(id)
+
+    try:
+        db.session.delete(users)
+        db.session.commit()
+        return redirect('/users')
+    except:
+        'Произошла ошибка при удалении пользователя'

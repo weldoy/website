@@ -592,6 +592,7 @@ footer p {
 	border-radius: 5px;
 	background-color: rgb(218, 218, 218);
 	margin-top: 30px;
+	width: 375px;
 }
 
 .box_update_bd {
@@ -625,7 +626,7 @@ footer p {
 	justify-content: space-between;
 }
 
-.bd-adminpage, .adm-adminpage{
+.btn-adminpage {
 	margin-top: 10px;
 	height: 40px;
 	margin-right: 0;

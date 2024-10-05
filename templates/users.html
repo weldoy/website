@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>База данных</title>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container_auth box_update_bd">
+    <h2 class="authnamecon newnameicobd usbd">Клиенты</h2>
+    <a href="{{ url_for('personal') }}" class="auth-register-btn">Вернуться назад</a>
+    <div class="bd_box_of_goods">
+        {% if users %}
+            {% for el in users %}
+            <div class="goods">
+                <p>user id - {{ el.id }}</p>
+                <p>login - {{ el.login }}</p>
+                <p>email - {{ el.email }}</p>
+                <p>
+                {% if el.login != current_user.login %}
+                    <a href="" class="completebtn">Редактировать</a>
+                    <a href="/users/{{ el.id }}/delete" class="completebtn">Удалить</a>
+                {% endif %}
+                </p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="goods">
+                <p>Пользователей пока не существует :(</p>
+            </div>
+        {% endif %}
+        
+    </div>
+</div>
+<div class="section-separator-figure"></div>
+{% endblock content %}

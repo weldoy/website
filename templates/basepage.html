@@ -8,7 +8,7 @@
 {% block content %}
 <div class="container_auth box_update_bd">
     <h2 class="authnamecon newnameicobd">База данных</h2>
-    <a href="{{ url_for('admin') }}" class="auth-register-btn">Панель админа</a>
+    <a href="{{ url_for('addinggoods') }}" class="auth-register-btn">Поставка товаров</a>
     <div class="bd_box_of_goods">
         {% if goods %}
             {% for el in goods %}

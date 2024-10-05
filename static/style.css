@@ -562,7 +562,7 @@ footer p {
 .child_from_personal-flex-box {
 	margin-bottom: auto;
 	position: relative;
-	bottom: 200px;
+	bottom: 40px;
 }
 
 .personal_page {
@@ -614,4 +614,18 @@ footer p {
 .completebtn:hover {
 	background-color: rgb(189, 189, 189);
 	color: rgb(0, 0, 0);
+}
+
+.adminblock {
+	border: 2px solid rgb(175, 175, 175);
+	border-radius: 5px;
+	width: 100%;
+	height: 300px;	
+	display: flex;
+	justify-content: space-between;
+}
+
+.bd-adminpage, .adm-adminpage{
+	height: 40px;
+	margin-right: 0;
 }

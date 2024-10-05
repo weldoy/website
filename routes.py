@@ -96,21 +96,30 @@ def register():
     login = request.form.get('login')
     password = request.form.get('password')
     password2 = request.form.get('password2')
+    email = request.form.get('email')
+
     login_old = User.query.order_by(User.login).all()
     login_list = []
     for el in login_old:
         login_list.append(el.login)
 
+    email_old = User.query.order_by(User.email).all()
+    email_list = []
+    for el in email_old:
+        email_list.append(el.email)
+
     if request.method == "POST":
-        if not (login or password or password2):
+        if not (login or password or password2 or email):
             flash('Пожалуйста заполните поля')
         elif password != password2:
             flash('Пароли не совпадают')
         elif login in login_list:
             flash('Такой логин уже существует!')
+        elif email in email_list:
+            flash('Такая почта уже существует!')
         else:
             hash_pwd = generate_password_hash(password)
-            new_user = User(login=login, password=hash_pwd)
+            new_user = User(login=login, password=hash_pwd, email=email)
             db.session.add(new_user)
             db.session.commit()
 
@@ -134,9 +143,9 @@ def personal():
     return render_template('personal_cab.html', current_user=now_user)
 
 
-@app.route('/admin', methods=["GET", "POST"])
+@app.route('/addinggoods', methods=["GET", "POST"])
 @login_required
-def admin():
+def addinggoods():
     goodsname = request.form.get('goodsname')
     goodsold = Cart.query.order_by(Cart.product).all()
     goods_list = []
@@ -154,8 +163,8 @@ def admin():
             db.session.add(new_goods)
             db.session.commit()
 
-            return redirect(url_for('admin'))
-    return render_template('admin.html')
+            return redirect(url_for('addinggoods'))
+    return render_template('addinggoods.html')
 
 
 @app.route('/basepage', methods=["GET", "POST"])

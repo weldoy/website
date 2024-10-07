@@ -227,7 +227,6 @@ def editcomplete(id):
     user = User.query.get_or_404(id)
 
     newlogin = request.form.get('newlogin')
-    print(newlogin)
     oldlogin = User.query.order_by(User.login).all()
     login_list = []
     for el in oldlogin:
@@ -235,11 +234,39 @@ def editcomplete(id):
 
     if request.method == "POST":
         if not (newlogin):
-            flash('Пожалуйста заполните поля')
+            pass
         elif newlogin in login_list:
-            flash('Такой логин уже существует!')
+            pass
         else:
-            flash('Логин изменен!')
+            pass
             db.session.query(User).filter(User.login == user.login).update({User.login : newlogin})
+            db.session.commit()
+    return redirect(url_for('users'))
+
+
+@app.route('/users/<int:id>/edit/email', methods=["GET", "POST"])
+def editemail(id):
+    user = User.query.get_or_404(id)
+    return render_template('editemail.html', user=user)
+    
+
+
+@app.route('/users/<int:id>/edit/email/complete', methods=["GET", "POST"])
+def editemailcomplete(id):
+    user = User.query.get_or_404(id)
+
+    newemail = request.form.get('newemail')
+    oldemail = User.query.order_by(User.email).all()
+    email_list = []
+    for el in oldemail:
+        email_list.append(el.email)
+
+    if request.method == "POST":
+        if not (newemail):
+            pass
+        elif newemail in email_list:
+            pass
+        else:
+            db.session.query(User).filter(User.email == user.email).update({User.email : newemail})
             db.session.commit()
     return redirect(url_for('users'))

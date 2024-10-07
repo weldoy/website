@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Изменения Логина</title>
+    <title>Изменение почты</title>
 {% endblock title %}
 
 
@@ -12,8 +12,8 @@
     <div class="bd_box_of_goods">
         {% if user %}
         <div class="goods">
-            <form id="editor" method="post" autocomplete="off" action="/users/{{ user.id }}/edit/login/complete">
-                <input class="auth-form" type="text" id="newlogin" name="newlogin" placeholder="Новый логин" required>
+            <form id="editor" method="post" autocomplete="off" action="/users/{{ user.id }}/edit/email/complete">
+                <input class="auth-form" type="text" id="newemail" name="newemail" placeholder="Новая почта" required>
                 <button class="completebtn editloginbtn" type="submit">Сохранить</button>
             </form>
         </div>

@@ -13,19 +13,19 @@
         {% if users %}
             {% for el in users %}
             <div class="goods">
-                <p>user id - {{ el.id }}</p>
-                <p>login - {{ el.login }}</p>
-                <p>email - {{ el.email }}</p>
+                <p>user id -<strong>{{ el.id }}</strong>-</p>
+                <p>login -<strong>{{ el.login }}</strong>-</p>
+                <p>email -<strong>{{ el.email }}</strong>-</p>
                 <p>
                 {% if el.login != current_user.login %}
-                    <a href="" class="completebtn">Редактировать</a>
+                    <a href="/users/{{ el.id }}/edit" class="completebtn">Редактировать</a>
                     <a href="/users/{{ el.id }}/delete" class="completebtn">Удалить</a>
                 {% endif %}
                 </p>
             </div>
             {% endfor %}
         {% else %}
-            <div class="goods">
+            <div class="goods goodscenter">
                 <p>Пользователей пока не существует :(</p>
             </div>
         {% endif %}

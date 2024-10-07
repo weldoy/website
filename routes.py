@@ -183,17 +183,19 @@ def complete_task(id):
         db.session.commit()
         return redirect('/basepage')
     except:
-        'Произошла ошибка при удалении товара'
+        return 'Произошла ошибка при удалении товара'
 
 
 @app.route('/1')
 def error1():
     return redirect('/')
 
+
 @app.route('/users', methods=["GET", "POST"])
 def users():
     users = User.query.order_by(User.login).all()
     return render_template('users.html', users=users)
+
 
 @app.route('/users/<int:id>/delete')
 def delete_user(id):
@@ -204,4 +206,40 @@ def delete_user(id):
         db.session.commit()
         return redirect('/users')
     except:
-        'Произошла ошибка при удалении пользователя'
+        return 'Произошла ошибка при удалении пользователя'
+
+
+@app.route('/users/<int:id>/edit', methods=["GET", "POST"])
+def edituser(id):
+    user = User.query.get_or_404(id)
+    return render_template('edituser.html', user=user)
+
+
+@app.route('/users/<int:id>/edit/login', methods=["GET", "POST"])
+def editlogin(id):
+    user = User.query.get_or_404(id)
+    return render_template('editlogin.html', user=user)
+    
+
+
+@app.route('/users/<int:id>/edit/login/complete', methods=["GET", "POST"])
+def editcomplete(id):
+    user = User.query.get_or_404(id)
+
+    newlogin = request.form.get('newlogin')
+    print(newlogin)
+    oldlogin = User.query.order_by(User.login).all()
+    login_list = []
+    for el in oldlogin:
+        login_list.append(el.login)
+
+    if request.method == "POST":
+        if not (newlogin):
+            flash('Пожалуйста заполните поля')
+        elif newlogin in login_list:
+            flash('Такой логин уже существует!')
+        else:
+            flash('Логин изменен!')
+            db.session.query(User).filter(User.login == user.login).update({User.login : newlogin})
+            db.session.commit()
+    return redirect(url_for('users'))

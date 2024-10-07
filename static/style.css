@@ -631,3 +631,29 @@ footer p {
 	height: 40px;
 	margin-right: 0;
 }
+
+.chbtn {
+	margin-right: -40px;
+	margin-left: -10px;
+}
+
+.goodscenter {
+	text-align: center;
+}
+
+strong {
+	color: rgb(70, 70, 70)
+}
+
+.editloginbtn {
+	margin-right: auto;
+	margin-left: 5px;
+}
+
+.edituserbtn {
+	color: black;
+}
+
+.edituserbtn:hover {
+	color: rgb(85, 85, 85);
+}

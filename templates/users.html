@@ -13,9 +13,10 @@
         {% if users %}
             {% for el in users %}
             <div class="goods">
-                <p>user id -<strong>{{ el.id }}</strong>-</p>
+                <p>user_id -<strong>{{ el.id }}</strong>-</p>
                 <p>login -<strong>{{ el.login }}</strong>-</p>
                 <p>email -<strong>{{ el.email }}</strong>-</p>
+                <p>admin_status -<strong>{{ el.admin }}</strong></p>
                 <p>
                 {% if el.login != current_user.login %}
                     <a href="/users/{{ el.id }}/edit" class="completebtn">Редактировать</a>

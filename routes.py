@@ -118,10 +118,17 @@ def register():
         elif email in email_list:
             flash('Такая почта уже существует!')
         else:
+
             hash_pwd = generate_password_hash(password)
             new_user = User(login=login, password=hash_pwd, email=email)
             db.session.add(new_user)
             db.session.commit()
+            
+            if new_user.id == 1:
+                db.session.query(User).filter(User.id == 1).update({User.admin : True})
+                db.session.commit()
+            else:
+                pass
 
             return redirect(url_for('login'))
 
@@ -238,7 +245,6 @@ def editcomplete(id):
         elif newlogin in login_list:
             pass
         else:
-            pass
             db.session.query(User).filter(User.login == user.login).update({User.login : newlogin})
             db.session.commit()
     return redirect(url_for('users'))

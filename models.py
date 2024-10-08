@@ -9,6 +9,7 @@ class User (db.Model, UserMixin):
     login = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False)
+    admin = db.Column(db.Boolean, nullable=False, default=False)
 
 
 @manager.user_loader

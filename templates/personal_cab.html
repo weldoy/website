@@ -26,13 +26,15 @@
             </p>
         </div>
         <a href="{{ url_for('logout') }}" class="footer-log child_from_personal-flex-box">Выйти из аккаунта</a>
-        <div class="adminblock">
-            <a href="{{ url_for('basepage') }}" class="footer-log btn-adminpage">База Данных</a>
-            <a href="{{ url_for('users') }}" class="footer-log btn-adminpage">Пользователи</a>
-            <a href="{{ url_for('addinggoods') }}" class="footer-log btn-adminpage">Добавление товаров</a>
-        </div>
+            <div class="adminblock">
+                {% if current_user.admin == True %}
+                    <a href="{{ url_for('basepage') }}" class="footer-log btn-adminpage">База Данных</a>
+                    <a href="{{ url_for('users') }}" class="footer-log btn-adminpage">Пользователи</a>
+                    <a href="{{ url_for('addinggoods') }}" class="footer-log btn-adminpage">Добавление товаров</a>
+                {% else %}
+                {% endif %}
+            </div>
     </div>
-
     <div class="section-separator-figure"></div>
 {% endblock content %}
 

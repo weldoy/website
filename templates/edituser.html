@@ -15,7 +15,7 @@
             <p>user_id -<strong>{{ user.id }}</strong> -</p>
             <p>login -<strong>{{ user.login }}</strong> -<a class="edituserbtn" href="/users/{{ user.id }}/edit/login">Edit</a></p>
             <p>email -<strong>{{ user.email }}</strong> -<a class="edituserbtn" href="/users/{{ user.id }}/edit/email">Edit</a></p>
-            <p>admin status-<strong>{{ user.admin }}</strong></p>
+            <p>admin status -<strong>{{ user.admin }}</strong> -<a class="edituserbtn" href="/users/{{ user.id }}/edit/status">Edit</a></p>
             <p><a href="/users/{{ user.id }}/delete" class="completebtn">Удалить</a></p>
         </div>
         {% else %}

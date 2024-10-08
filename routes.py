@@ -123,9 +123,9 @@ def register():
             new_user = User(login=login, password=hash_pwd, email=email)
             db.session.add(new_user)
             db.session.commit()
-            
+
             if new_user.id == 1:
-                db.session.query(User).filter(User.id == 1).update({User.admin : True})
+                new_user.admin = True
                 db.session.commit()
             else:
                 pass
@@ -275,4 +275,28 @@ def editemailcomplete(id):
         else:
             db.session.query(User).filter(User.email == user.email).update({User.email : newemail})
             db.session.commit()
+    return redirect(url_for('users'))
+
+
+@app.route('/users/<int:id>/edit/status', methods=["GET", "POST"])
+def editstatus(id):
+    user = User.query.get_or_404(id)
+    return render_template('editstatus.html', user=user)
+    
+
+
+@app.route('/users/<int:id>/edit/status/complete', methods=["GET", "POST"])
+def editstatuscomplete(id):
+    user = User.query.get_or_404(id)
+    newstatus = request.form.get('newstatus')
+
+    if request.method == "POST":
+        if newstatus == 'True':
+            user.admin = True
+            db.session.commit()
+        elif newstatus == 'False':
+            user.admin = False
+            db.session.commit()
+        else:
+            pass
     return redirect(url_for('users'))

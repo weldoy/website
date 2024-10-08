@@ -53,7 +53,12 @@ def proof_of_underwear():
 
 @app.route('/base', methods=["GET", "POST"])
 def base():
-    return render_template('base.html')
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+    
+        return render_template('base.html')
 
 
 @app.route('/order', methods=["GET", "POST"])
@@ -153,44 +158,58 @@ def personal():
 @app.route('/addinggoods', methods=["GET", "POST"])
 @login_required
 def addinggoods():
-    goodsname = request.form.get('goodsname')
-    goodsold = Cart.query.order_by(Cart.product).all()
-    goods_list = []
-    for el in goodsold:
-        goods_list.append(el.product)
 
-    if request.method == "POST":
-        if not (goodsname):
-            flash('Пожалуйста заполните поля')
-        elif goodsname in goods_list:
-            flash('Такой товар уже существует!')
-        else:
-            flash('Товар добавлен в базу данных')
-            new_goods = Cart(product=goodsname)
-            db.session.add(new_goods)
-            db.session.commit()
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
 
-            return redirect(url_for('addinggoods'))
-    return render_template('addinggoods.html')
+        goodsname = request.form.get('goodsname')
+        goodsold = Cart.query.order_by(Cart.product).all()
+        goods_list = []
+        for el in goodsold:
+            goods_list.append(el.product)
+
+        if request.method == "POST":
+            if not (goodsname):
+                flash('Пожалуйста заполните поля')
+            elif goodsname in goods_list:
+                flash('Такой товар уже существует!')
+            else:
+                flash('Товар добавлен в базу данных')
+                new_goods = Cart(product=goodsname)
+                db.session.add(new_goods)
+                db.session.commit()
+
+                return redirect(url_for('addinggoods'))
+        return render_template('addinggoods.html')
 
 
 @app.route('/basepage', methods=["GET", "POST"])
 @login_required
 def basepage():
     goods = Cart.query.order_by(Cart.date.desc()).all()
-    return render_template('basepage.html', goods=goods)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        return render_template('basepage.html', goods=goods)
 
 
 @app.route('/basepage/<int:id>/complete')
 def complete_task(id):
     goods = Cart.query.get_or_404(id)
 
-    try:
-        db.session.delete(goods)
-        db.session.commit()
-        return redirect('/basepage')
-    except:
-        return 'Произошла ошибка при удалении товара'
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        try:
+            db.session.delete(goods)
+            db.session.commit()
+            return redirect('/basepage')
+        except:
+            return 'Произошла ошибка при удалении товара'
 
 
 @app.route('/1')
@@ -201,31 +220,50 @@ def error1():
 @app.route('/users', methods=["GET", "POST"])
 def users():
     users = User.query.order_by(User.login).all()
-    return render_template('users.html', users=users)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        return render_template('users.html', users=users)
 
 
 @app.route('/users/<int:id>/delete')
 def delete_user(id):
     users = User.query.get_or_404(id)
 
-    try:
-        db.session.delete(users)
-        db.session.commit()
-        return redirect('/users')
-    except:
-        return 'Произошла ошибка при удалении пользователя'
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        try:
+            db.session.delete(users)
+            db.session.commit()
+            return redirect('/users')
+        except:
+            return 'Произошла ошибка при удалении пользователя'
 
 
 @app.route('/users/<int:id>/edit', methods=["GET", "POST"])
 def edituser(id):
     user = User.query.get_or_404(id)
-    return render_template('edituser.html', user=user)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        return render_template('edituser.html', user=user)
 
 
 @app.route('/users/<int:id>/edit/login', methods=["GET", "POST"])
 def editlogin(id):
     user = User.query.get_or_404(id)
-    return render_template('editlogin.html', user=user)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        return render_template('editlogin.html', user=user)
     
 
 
@@ -233,27 +271,36 @@ def editlogin(id):
 def editcomplete(id):
     user = User.query.get_or_404(id)
 
-    newlogin = request.form.get('newlogin')
-    oldlogin = User.query.order_by(User.login).all()
-    login_list = []
-    for el in oldlogin:
-        login_list.append(el.login)
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
 
-    if request.method == "POST":
-        if not (newlogin):
-            pass
-        elif newlogin in login_list:
-            pass
-        else:
-            db.session.query(User).filter(User.login == user.login).update({User.login : newlogin})
-            db.session.commit()
-    return redirect(url_for('users'))
+        newlogin = request.form.get('newlogin')
+        oldlogin = User.query.order_by(User.login).all()
+        login_list = []
+        for el in oldlogin:
+            login_list.append(el.login)
+
+        if request.method == "POST":
+            if not (newlogin):
+                pass
+            elif newlogin in login_list:
+                pass
+            else:
+                db.session.query(User).filter(User.login == user.login).update({User.login : newlogin})
+                db.session.commit()
+        return redirect(url_for('users'))
 
 
 @app.route('/users/<int:id>/edit/email', methods=["GET", "POST"])
 def editemail(id):
     user = User.query.get_or_404(id)
-    return render_template('editemail.html', user=user)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        return render_template('editemail.html', user=user)
     
 
 
@@ -261,42 +308,56 @@ def editemail(id):
 def editemailcomplete(id):
     user = User.query.get_or_404(id)
 
-    newemail = request.form.get('newemail')
-    oldemail = User.query.order_by(User.email).all()
-    email_list = []
-    for el in oldemail:
-        email_list.append(el.email)
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
 
-    if request.method == "POST":
-        if not (newemail):
-            pass
-        elif newemail in email_list:
-            pass
-        else:
-            db.session.query(User).filter(User.email == user.email).update({User.email : newemail})
-            db.session.commit()
-    return redirect(url_for('users'))
+        newemail = request.form.get('newemail')
+        oldemail = User.query.order_by(User.email).all()
+        email_list = []
+        for el in oldemail:
+            email_list.append(el.email)
+
+        if request.method == "POST":
+            if not (newemail):
+                pass
+            elif newemail in email_list:
+                pass
+            else:
+                db.session.query(User).filter(User.email == user.email).update({User.email : newemail})
+                db.session.commit()
+        return redirect(url_for('users'))
 
 
 @app.route('/users/<int:id>/edit/status', methods=["GET", "POST"])
 def editstatus(id):
     user = User.query.get_or_404(id)
-    return render_template('editstatus.html', user=user)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        return render_template('editstatus.html', user=user)
     
 
 
 @app.route('/users/<int:id>/edit/status/complete', methods=["GET", "POST"])
 def editstatuscomplete(id):
     user = User.query.get_or_404(id)
-    newstatus = request.form.get('newstatus')
 
-    if request.method == "POST":
-        if newstatus == 'True':
-            user.admin = True
-            db.session.commit()
-        elif newstatus == 'False':
-            user.admin = False
-            db.session.commit()
-        else:
-            pass
-    return redirect(url_for('users'))
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        newstatus = request.form.get('newstatus')
+
+        if request.method == "POST":
+            if newstatus == 'True':
+                user.admin = True
+                db.session.commit()
+            elif newstatus == 'False':
+                user.admin = False
+                db.session.commit()
+            else:
+                pass
+        return redirect(url_for('users'))

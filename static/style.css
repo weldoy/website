@@ -674,3 +674,8 @@ p strong {
 	width: 250px;
 	
 }
+
+.poscentertext {
+	margin-right: auto; margin-left: auto;
+	margin-bottom: 560px;
+}

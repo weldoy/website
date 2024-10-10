@@ -13,22 +13,26 @@ def index():
 
 @app.route('/tshirts', methods=['GET', "POST"])
 def tshirts():
-    return render_template('t-shirts.html')
+    goods = Cart.query.order_by(Cart.date.desc()).all()
+    return render_template('t-shirts.html', goods=goods)
 
 
 @app.route('/pants', methods=["GET", "POST"])
 def pants():
-    return render_template('pants.html')
+    goods = Cart.query.order_by(Cart.date.desc()).all()
+    return render_template('pants.html', goods=goods)
 
 
 @app.route('/hoodies', methods=["GET", "POST"])
 def hoodies():
-    return render_template('hoodies.html')
+    goods = Cart.query.order_by(Cart.date.desc()).all()
+    return render_template('hoodies.html', goods=goods)
 
 
 @app.route('/underwear', methods=["GET", "POST"])
 def underwear():
-    return render_template('underwear.html')
+    goods = Cart.query.order_by(Cart.date.desc()).all()
+    return render_template('underwear.html', goods=goods)
 
 
 @app.route('/proof_of_tshirt', methods=["GET", "POST"])
@@ -124,8 +128,9 @@ def register():
             flash('Такая почта уже существует!')
         else:
 
+            password = password.replace(' ', '')
             hash_pwd = generate_password_hash(password)
-            new_user = User(login=login, password=hash_pwd, email=email)
+            new_user = User(login=login.replace(' ', ''), password=hash_pwd, email=email.replace(' ', ''))
             db.session.add(new_user)
             db.session.commit()
 
@@ -163,6 +168,7 @@ def addinggoods():
         return 'Sorry, you have not special access for that page'
     else:
 
+        collection = request.form.get('collection')
         goodsname = request.form.get('goodsname')
         goodsold = Cart.query.order_by(Cart.product).all()
         goods_list = []
@@ -176,7 +182,7 @@ def addinggoods():
                 flash('Такой товар уже существует!')
             else:
                 flash('Товар добавлен в базу данных')
-                new_goods = Cart(product=goodsname)
+                new_goods = Cart(product=goodsname.capitalize(), collection=collection.lower().replace(' ', ''))
                 db.session.add(new_goods)
                 db.session.commit()
 
@@ -287,7 +293,7 @@ def editcomplete(id):
             elif newlogin in login_list:
                 pass
             else:
-                db.session.query(User).filter(User.login == user.login).update({User.login : newlogin})
+                db.session.query(User).filter(User.login == user.login).update({User.login : newlogin.replace(' ', '')})
                 db.session.commit()
         return redirect(url_for('users'))
 
@@ -324,7 +330,7 @@ def editemailcomplete(id):
             elif newemail in email_list:
                 pass
             else:
-                db.session.query(User).filter(User.email == user.email).update({User.email : newemail})
+                db.session.query(User).filter(User.email == user.email).update({User.email : newemail.replace(' ', '')})
                 db.session.commit()
         return redirect(url_for('users'))
 
@@ -352,10 +358,10 @@ def editstatuscomplete(id):
         newstatus = request.form.get('newstatus')
 
         if request.method == "POST":
-            if newstatus == 'True':
+            if newstatus.replace(' ', '') == 'True':
                 user.admin = True
                 db.session.commit()
-            elif newstatus == 'False':
+            elif newstatus.replace(' ', '') == 'False':
                 user.admin = False
                 db.session.commit()
             else:

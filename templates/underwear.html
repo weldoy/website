@@ -9,53 +9,21 @@
 
 <div class="cardcontainer">
 
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-    
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-    
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-    
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
-
-    <article class="card">
-        <p>Нижнее белье</p>
-        <a href="{{ url_for('proof_of_underwear') }}">
-            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Штаны" height="250"></a>
-    </article>
+    {% if goods %}
+        {% for el in goods %}
+            {% if el.collection == 'белье' %}
+                <article class="card">
+                    <p>{{el.product}}</p>
+                    <a href="{{ url_for('proof_of_underwear') }}">
+                        <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="футболка" height="240"></a>
+                </article>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="poscentertext">
+            <p>Извините, товары пока отсутствуют</p>
+        </div>        
+    {% endif %}
 
 </div>  
 

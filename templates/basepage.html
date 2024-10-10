@@ -13,15 +13,16 @@
         {% if goods %}
             {% for el in goods %}
             <div class="goods">
-                <p>Товар -<strong>{{ el.product }}</strong></p>
                 <p>ID товара -<strong>{{ el.product_id }}</strong></p>
+                <p>Товар -<strong>{{ el.product }}</strong></p>
+                <p>Категория -<strong>{{ el.collection }}</strong></p>
                 <p>Дата -<strong>{{ el.date }}</strong></p>
-                <p><a href="/basepage/{{ el.product_id }}/complete" class="completebtn">Выполнено</a></p>
+                <p><a href="/basepage/{{ el.product_id }}/complete" class="completebtn">Удалить</a></p>
             </div>
             {% endfor %}
         {% else %}
             <div class="goods goodscenter">
-                <p>Поздравляю! Вы выполнили все заказы :)</p>
+                <p>Товаров в базе данных пока нет</p>
             </div>
         {% endif %}
         

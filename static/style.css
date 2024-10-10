@@ -641,7 +641,7 @@ footer p {
 	text-align: center;
 }
 
-strong {
+p strong {
 	color: rgb(70, 70, 70)
 }
 
@@ -656,4 +656,21 @@ strong {
 
 .edituserbtn:hover {
 	color: rgb(85, 85, 85);
+}
+
+.flexbox_trade {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 50px; padding-right: 50px;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.trade_img {
+	border: 2px solid grey;
+	border-radius: 5px;
+	overflow: hidden;
+	height: 250px;
+	width: 250px;
+	
 }

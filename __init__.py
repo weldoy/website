@@ -8,7 +8,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///profiles.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 app.config['SQLALCHEMY_BINDS'] = {
-    'goods': 'sqlite:///goods.db'
+    'goods': 'sqlite:///goods.db',
+    'trade': 'sqlite:///trade.db'
 }
 
 db = SQLAlchemy(app)

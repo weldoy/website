@@ -358,10 +358,12 @@ def editstatuscomplete(id):
         newstatus = request.form.get('newstatus')
 
         if request.method == "POST":
-            if newstatus.replace(' ', '') == 'True':
+            if (newstatus.replace(' ', '') == 'True' 
+                or newstatus.replace(' ', '') == '1'):
                 user.admin = True
                 db.session.commit()
-            elif newstatus.replace(' ', '') == 'False':
+            elif (newstatus.replace(' ', '') == 'False' 
+                or newstatus.replace(' ', '') == '0'):
                 user.admin = False
                 db.session.commit()
             else:

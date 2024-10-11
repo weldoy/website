@@ -202,23 +202,23 @@ ul .abcv {
 
 .cs_card {
 	border: black 1px solid;
-	border-radius: 0px;
+	border-radius: 2px;
 	margin: 0px 10px;
 	height: 35px;
 	width: 35px;
 }
 
 .cs_card:hover {
-	background-color: rgb(200, 200, 200);
+	background-color: rgb(214, 214, 214);
 }
 
 .active_size_btn {
-	background-color: rgb(165, 165, 165);
+	background-color: rgb(195, 195, 195);
 	
 }
 
 .active_size_btn:hover {
-	background-color: rgb(165, 165, 165);
+	background-color: rgb(175, 175, 175);
 }
 
 .oryr ul p {

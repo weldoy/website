@@ -3,7 +3,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
 
 from __init__ import app, db
-from models import User, Cart
+from models import User, Cart, Trade
 
 
 @app.route('/', methods=['GET', "POST"])
@@ -369,3 +369,31 @@ def editstatuscomplete(id):
             else:
                 pass
         return redirect(url_for('users'))
+
+
+@app.route('/trades', methods=["GET", "POST"])
+def trades():
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        trade = Trade.query.order_by(Trade.trade_date.desc()).all()
+        
+        return render_template('trades.html', trade=trade)
+
+
+@app.route('/trades/<int:trade_id>/delete')
+def delete_trade(trade_id):
+    trade = Trade.query.get_or_404(trade_id)
+
+    if current_user.admin == False:
+        return 'Sorry, you have not special access for that page'
+    else:
+
+        try:
+            db.session.delete(trade)
+            db.session.commit()
+            return redirect('/trades')
+        except:
+            return 'Произошла ошибка при удалении заказа'

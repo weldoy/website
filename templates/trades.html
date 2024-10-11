@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Заказы</title>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container_auth box_update_bd">
+    <h2 class="authnamecon newnameicobd usbd">Все заказы</h2>
+    <a href="{{ url_for('personal') }}" class="auth-register-btn">Вернуться назад</a>
+    <div class="bd_box_of_goods">
+        {% if trade %}
+            {% for el in trade %}
+            <div class="goods">
+                <p>ID заказа -<strong>{{ el.trade_id }}</strong>-</p>
+                <p>ID продукта -<strong>{{ el.trade_prod_id }}</strong>-</p>
+                <p>Название продукта -<strong>{{ el.trade_prod_name }}</strong>-</p>
+                <p>Цена продукта -<strong>{{ el.trade_prod_price }}</strong>-</p>
+                <p>Размер продукта -<strong>{{ el.trade_prod_size }}</strong>-</p>
+                <p>ID пользователя -<strong>{{ el.trade_user_id }}</strong>-</p>
+                <p>Почта пользователя -<strong>{{ el.trade_user_email }}</strong>-</p>
+                <p>Дата создания -<strong>{{ el.trade_date }}</strong>-</p>
+                <p>
+                {% if el.login != current_user.login %}
+                    <a href="/trades/{{ el.trade_id }}/delete" class="completebtn">Удалить</a>
+                {% endif %}
+                </p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="goods goodscenter">
+                <p>Текущих заказов пока нет :(</p>
+            </div>
+        {% endif %}
+        
+    </div>
+</div>
+<div class="section-separator-figure"></div>
+{% endblock content %}

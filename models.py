@@ -24,6 +24,7 @@ class Cart (db.Model):
     product_id = db.Column(db.Integer, primary_key=True)
     collection = db.Column(db.String(64), nullable=False)
     product = db.Column(db.String(64), nullable=False)
+    product_price = db.Column(db.String(64), nullable=False)
     date = db.Column(db.DateTime, default=datetime.now())
 
 

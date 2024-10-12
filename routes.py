@@ -169,6 +169,7 @@ def addinggoods():
     else:
 
         collection = request.form.get('collection')
+        product_price = request.form.get('product_price')
         goodsname = request.form.get('goodsname')
         goodsold = Cart.query.order_by(Cart.product).all()
         goods_list = []
@@ -182,7 +183,9 @@ def addinggoods():
                 flash('Такой товар уже существует!')
             else:
                 flash('Товар добавлен в базу данных')
-                new_goods = Cart(product=goodsname.capitalize(), collection=collection.lower().replace(' ', ''))
+                new_goods = Cart(product=goodsname.capitalize(), 
+                                 collection=collection.lower().replace(' ', ''),
+                                 product_price=product_price.replace(' ', ''))
                 db.session.add(new_goods)
                 db.session.commit()
 
@@ -397,3 +400,12 @@ def delete_trade(trade_id):
             return redirect('/trades')
         except:
             return 'Произошла ошибка при удалении заказа'
+
+
+@app.route('/tshirts/<int:product_id>/proof', methods=["GET", "POST"])
+def tshirts_proof(product_id):
+    product = Cart.query.get_or_404(product_id)
+
+    
+
+    return render_template('proof.html', product=product)

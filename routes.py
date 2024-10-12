@@ -402,10 +402,20 @@ def delete_trade(trade_id):
             return 'Произошла ошибка при удалении заказа'
 
 
-@app.route('/tshirts/<int:product_id>/proof', methods=["GET", "POST"])
-def tshirts_proof(product_id):
+@app.route('/<int:product_id>/proof', methods=["GET", "POST"])
+def proof(product_id):
     product = Cart.query.get_or_404(product_id)
 
-    
-
     return render_template('proof.html', product=product)
+
+
+@app.route('/<int:product_id>/proof/success', methods=["GET", "POST"])
+def proof_success(product_id):
+    product = Cart.query.get_or_404(product_id)
+
+    product_price = product.product_price
+
+    if request.method == "POST":
+        pass
+
+        return redirect(url_for('tshirts'))

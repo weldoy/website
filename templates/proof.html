@@ -6,33 +6,36 @@
 
 {% block content %}
 {% if product %}
-    <div class="assorti"><h2>{{ product.product }}</h2></div>
-    <div class="cardcontainer">
-        <article class="card">
-            <img src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="Футболка" height="270">
-        </article>
-    </div>
-    <div class="oryr">
-        <h3>{{ product.product_price }} руб</h3>
-            
-        <div class="choose_size">
-            <button class="cs_card">XS</button>
-            <button class="cs_card">S</button>
-            <button class="cs_card">M</button>
-            <button class="cs_card">L</button>
-            <button class="cs_card">XL</button>
+    <form method="post" action="proof/success">
+        <div class="assorti"><h2>{{ product.product }}</h2></div>
+        <div class="cardcontainer">
+            <article class="card">
+                <img src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="Футболка" height="270">
+            </article>
+        </div>
+        <div class="oryr">
+            <h3>{{ product.product_price }} руб</h3>
+                
+            <div class="choose_size">
+                <input name="XS" type="button" value="XS" class="cs_card">
+                <input name="S" type="button" value="S" class="cs_card">
+                <input name="M" type="button" value="M" class="cs_card">
+                <input name="L" type="button" value="L" class="cs_card">
+                <input name="XL" type="button" value="XL" class="cs_card">
+            </div>
+
+            <ul>
+                <p>Собственное произодство</p>
+                <p>Хлопок - 100%</p>
+                <p>Качественный принт</p>
+            </ul>
         </div>
 
-        <ul>
-            <p>Собственное произодство</p>
-            <p>Хлопок - 100%</p>
-            <p>Качественный принт</p>
-        </ul>
-    </div>
-
-    <div class="box_4_btn"><button data-v-c3114ba2="" class="app-button basket-price__submit width-100 paypose" type="submit">
-        Добавить в корзину
-    </button></div>
+        <div class="box_4_btn">
+            <button data-v-c3114ba2 class="app-button basket-price__submit width-100 paypose" type="submit">
+            Добавить в корзину</button>
+        </div>
+    </form>
 {% else %}
 {% endif %}
 <nav>

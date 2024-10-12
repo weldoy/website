@@ -14,8 +14,8 @@
             {% if el.collection == 'футболка' %}
                 <article class="card">
                     <p>{{el.product}}</p>
-                    <a href="/tshirts/{{ el.product_id }}/proof">
-                        <img class="zoom-effect" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="футболка" height="240"></a>
+                    <a href="{{ el.product_id }}/proof">
+                        <img class="zoom-effect" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" height="240"></a>
                 </article>
             {% endif %}
         {% endfor %}

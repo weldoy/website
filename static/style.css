@@ -679,3 +679,7 @@ p strong {
 	margin-right: auto; margin-left: auto;
 	margin-bottom: 560px;
 }
+
+.pointer {
+	cursor: pointer;
+} 

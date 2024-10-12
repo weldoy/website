@@ -17,11 +17,19 @@
             <h3>{{ product.product_price }} руб</h3>
                 
             <div class="choose_size">
-                <input name="XS" type="button" value="XS" class="cs_card">
+                <!-- <input name="XS" type="button" value="XS" class="cs_card">
                 <input name="S" type="button" value="S" class="cs_card">
                 <input name="M" type="button" value="M" class="cs_card">
                 <input name="L" type="button" value="L" class="cs_card">
-                <input name="XL" type="button" value="XL" class="cs_card">
+                <input name="XL" type="button" value="XL" class="cs_card"> -->
+                <label for="size">Выберите нужный размер :</label>
+                <select name="size" id="size">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
             </div>
 
             <ul>

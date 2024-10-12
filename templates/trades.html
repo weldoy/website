@@ -23,7 +23,7 @@
                 <p>Дата создания -<strong>{{ el.trade_date }}</strong>-</p>
                 <p>
                 {% if el.login != current_user.login %}
-                    <a href="/trades/{{ el.trade_id }}/delete" class="completebtn">Удалить</a>
+                    <a href="/trades/{{ el.trade_id }}/delete" class="completebtn">Выполнить</a>
                 {% endif %}
                 </p>
             </div>

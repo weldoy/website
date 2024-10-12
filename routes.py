@@ -206,6 +206,7 @@ def basepage():
 
 
 @app.route('/basepage/<int:id>/complete')
+@login_required
 def complete_task(id):
     goods = Cart.query.get_or_404(id)
 
@@ -227,6 +228,7 @@ def error1():
 
 
 @app.route('/users', methods=["GET", "POST"])
+@login_required
 def users():
     users = User.query.order_by(User.login).all()
 
@@ -238,6 +240,7 @@ def users():
 
 
 @app.route('/users/<int:id>/delete')
+@login_required
 def delete_user(id):
     users = User.query.get_or_404(id)
 
@@ -254,6 +257,7 @@ def delete_user(id):
 
 
 @app.route('/users/<int:id>/edit', methods=["GET", "POST"])
+@login_required
 def edituser(id):
     user = User.query.get_or_404(id)
 
@@ -265,6 +269,7 @@ def edituser(id):
 
 
 @app.route('/users/<int:id>/edit/login', methods=["GET", "POST"])
+@login_required
 def editlogin(id):
     user = User.query.get_or_404(id)
 
@@ -277,6 +282,7 @@ def editlogin(id):
 
 
 @app.route('/users/<int:id>/edit/login/complete', methods=["GET", "POST"])
+@login_required
 def editcomplete(id):
     user = User.query.get_or_404(id)
 
@@ -302,6 +308,7 @@ def editcomplete(id):
 
 
 @app.route('/users/<int:id>/edit/email', methods=["GET", "POST"])
+@login_required
 def editemail(id):
     user = User.query.get_or_404(id)
 
@@ -314,6 +321,7 @@ def editemail(id):
 
 
 @app.route('/users/<int:id>/edit/email/complete', methods=["GET", "POST"])
+@login_required
 def editemailcomplete(id):
     user = User.query.get_or_404(id)
 
@@ -339,6 +347,7 @@ def editemailcomplete(id):
 
 
 @app.route('/users/<int:id>/edit/status', methods=["GET", "POST"])
+@login_required
 def editstatus(id):
     user = User.query.get_or_404(id)
 
@@ -351,6 +360,7 @@ def editstatus(id):
 
 
 @app.route('/users/<int:id>/edit/status/complete', methods=["GET", "POST"])
+@login_required
 def editstatuscomplete(id):
     user = User.query.get_or_404(id)
 
@@ -375,6 +385,7 @@ def editstatuscomplete(id):
 
 
 @app.route('/trades', methods=["GET", "POST"])
+@login_required
 def trades():
 
     if current_user.admin == False:
@@ -387,6 +398,7 @@ def trades():
 
 
 @app.route('/trades/<int:trade_id>/delete')
+@login_required
 def delete_trade(trade_id):
     trade = Trade.query.get_or_404(trade_id)
 
@@ -410,12 +422,21 @@ def proof(product_id):
 
 
 @app.route('/<int:product_id>/proof/success', methods=["GET", "POST"])
+@login_required
 def proof_success(product_id):
     product = Cart.query.get_or_404(product_id)
 
     product_price = product.product_price
+    product_size = request.form.get('size')
+    user_id = current_user.id
+    user_email = current_user.email
 
     if request.method == "POST":
-        pass
+        new_trade = Trade(trade_prod_id=product_id, trade_prod_name=product.product, 
+                          trade_prod_price=product_price, trade_prod_size=product_size,
+                          trade_user_id=user_id, trade_user_email=user_email)
 
+        db.session.add(new_trade)
+        db.session.commit()
         return redirect(url_for('tshirts'))
+    return render_template('tshirts.html')

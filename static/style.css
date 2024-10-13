@@ -683,3 +683,11 @@ p strong {
 .pointer {
 	cursor: pointer;
 } 
+
+.changeimage {
+	position: absolute;
+	padding: 0;
+	width: 240px;
+	height: 40px;
+	top: 350px;
+}

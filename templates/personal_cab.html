@@ -12,7 +12,7 @@
         }
     </style>
     <div class="personal_page">
-        <img class="my_avatar" src="{{ url_for('static', filename='img/my_avatar.jpg') }}" alt="Аватарка">
+        <img class="my_avatar" src="{{ current_user.avatar(128) }}" alt="Аватарка">
         <div class="personal-flex-box-info">  
             <p>Ваше имя профиля - {{current_user.login}} </p>
             <p>Ваш id профиля - {{current_user.id}} - </p>

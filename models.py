@@ -1,5 +1,6 @@
 from flask_login import UserMixin
 from datetime import datetime
+from hashlib import md5
 
 from __init__ import db, manager
 
@@ -10,6 +11,10 @@ class User (db.Model, UserMixin):
     password = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False)
     admin = db.Column(db.Boolean, nullable=False, default=False)
+
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 
 
 @manager.user_loader

@@ -20,7 +20,7 @@
                 <p>Размер продукта -<strong>{{ el.trade_prod_size }}</strong>-</p>
                 <p>ID пользователя -<strong>{{ el.trade_user_id }}</strong>-</p>
                 <p>Почта пользователя -<strong>{{ el.trade_user_email }}</strong>-</p>
-                <p>Дата создания -<strong>{{ el.trade_date }}</strong>-</p>
+                <p>Дата создания -<strong>{{ el.trade_date.strftime('%d/%m/%Y, %H:%M:%S') }}</strong>-</p>
                 <p>
                 {% if el.login != current_user.login %}
                     <a href="/trades/{{ el.trade_id }}/delete" class="completebtn">Выполнить</a>

@@ -19,7 +19,13 @@
         {% endwith %}
     <form id="admin" method="post" autocomplete="off">
         <input class="auth-form" type="text" name="goodsname" placeholder="Название" required>
-        <input class="auth-form" type="text" name="collection" placeholder="Раздел : футболка - штаны - белье - кофта" required>
+        <label class="choosecollect" for="collection">Выберите категорию :</label>
+        <select class="auth-form color88" name="collection" id="collection">
+            <option class="color88" value="футболка">футболка</option>
+            <option class="color88" value="штаны">штаны</option>
+            <option class="color88" value="кофта">кофта</option>
+            <option class="color88" value="белье">белье</option>
+        </select>
         <input class="auth-form" type="text" name="product_price" placeholder="Цена" required>
         <button class="btn-auth-form" type="submit">Добавить</button>
     </form>

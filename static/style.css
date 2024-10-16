@@ -691,3 +691,12 @@ p strong {
 	height: 40px;
 	top: 350px;
 }
+
+.choosecollect {
+	margin-top: -10px;
+	color: rgb(88, 88, 88);
+}
+
+.color88 {
+	color: rgb(88, 88, 88);
+}

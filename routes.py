@@ -14,45 +14,26 @@ def index():
 @app.route('/tshirts', methods=['GET', "POST"])
 def tshirts():
     goods = Cart.query.order_by(Cart.date.desc()).all()
-    return render_template('t-shirts.html', goods=goods)
+    return render_template('collections/t-shirts.html', goods=goods)
 
 
 @app.route('/pants', methods=["GET", "POST"])
 def pants():
     goods = Cart.query.order_by(Cart.date.desc()).all()
-    return render_template('pants.html', goods=goods)
+    return render_template('collections/pants.html', goods=goods)
 
 
 @app.route('/hoodies', methods=["GET", "POST"])
 def hoodies():
     goods = Cart.query.order_by(Cart.date.desc()).all()
-    return render_template('hoodies.html', goods=goods)
+    return render_template('collections/hoodies.html', goods=goods)
 
 
 @app.route('/underwear', methods=["GET", "POST"])
 def underwear():
     goods = Cart.query.order_by(Cart.date.desc()).all()
-    return render_template('underwear.html', goods=goods)
+    return render_template('collections/underwear.html', goods=goods)
 
-
-@app.route('/proof_of_tshirt', methods=["GET", "POST"])
-def proof_of_tshirt():
-    return render_template('proof_of_tshirt.html')
-
-
-@app.route('/proof_of_pants', methods=["GET", "POST"])
-def proof_of_pants():
-    return render_template('proof_of_pants.html')
-
-
-@app.route('/proof_of_hoodies', methods=["GET", "POST"])
-def proof_of_hoodies():
-    return render_template('proof_of_hoodies.html')
-
-
-@app.route('/proof_of_underwear', methods=["GET", "POST"])
-def proof_of_underwear():
-    return render_template('proof_of_underwear.html')
 
 
 @app.route('/base', methods=["GET", "POST"])
@@ -190,7 +171,7 @@ def addinggoods():
                 db.session.commit()
 
                 return redirect(url_for('addinggoods'))
-        return render_template('addinggoods.html')
+        return render_template('cabinet/addinggoods.html')
 
 
 @app.route('/basepage', methods=["GET", "POST"])
@@ -202,7 +183,7 @@ def basepage():
         return 'Sorry, you have not special access for that page'
     else:
 
-        return render_template('basepage.html', goods=goods)
+        return render_template('cabinet/basepage.html', goods=goods)
 
 
 @app.route('/basepage/<int:id>/complete')
@@ -236,7 +217,7 @@ def users():
         return 'Sorry, you have not special access for that page'
     else:
 
-        return render_template('users.html', users=users)
+        return render_template('cabinet/users.html', users=users)
 
 
 @app.route('/users/<int:id>/delete')
@@ -265,7 +246,7 @@ def edituser(id):
         return 'Sorry, you have not special access for that page'
     else:
 
-        return render_template('edituser.html', user=user)
+        return render_template('date_edit/edituser.html', user=user)
 
 
 @app.route('/users/<int:id>/edit/login', methods=["GET", "POST"])
@@ -277,7 +258,7 @@ def editlogin(id):
         return 'Sorry, you have not special access for that page'
     else:
 
-        return render_template('editlogin.html', user=user)
+        return render_template('date_edit/editlogin.html', user=user)
     
 
 
@@ -316,7 +297,7 @@ def editemail(id):
         return 'Sorry, you have not special access for that page'
     else:
 
-        return render_template('editemail.html', user=user)
+        return render_template('date_edit/editemail.html', user=user)
     
 
 
@@ -355,7 +336,7 @@ def editstatus(id):
         return 'Sorry, you have not special access for that page'
     else:
 
-        return render_template('editstatus.html', user=user)
+        return render_template('date_edit/editstatus.html', user=user)
     
 
 
@@ -394,7 +375,7 @@ def trades():
 
         trade = Trade.query.order_by(Trade.trade_date.desc()).all()
         
-        return render_template('trades.html', trade=trade)
+        return render_template('cabinet/trades.html', trade=trade)
 
 
 @app.route('/trades/<int:trade_id>/delete')
@@ -439,4 +420,4 @@ def proof_success(product_id):
         db.session.add(new_trade)
         db.session.commit()
         return redirect(url_for('tshirts'))
-    return render_template('tshirts.html')
+    return redirect(url_for('tshirts'))

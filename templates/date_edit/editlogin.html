@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Изменение Логина</title>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container_auth box_update_bd">
+    <h2 class="authnamecon newnameicobd usbd">Редактировать</h2>
+    <a href="{{ url_for('users') }}" class="auth-register-btn chbtn">Вернуться назад</a>
+    <div class="bd_box_of_goods">
+        {% if user %}
+        <div class="goods">
+            <form id="editor" method="post" autocomplete="off" action="/users/{{ user.id }}/edit/login/complete">
+                <input class="auth-form" type="text" id="newlogin" name="newlogin" placeholder="Новый логин" required>
+                <button class="completebtn editloginbtn" type="submit">Сохранить</button>
+            </form>
+        </div>
+        {% else %}
+            <div class="goods goodscenter">
+                <p>Произошла ошибка :(</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+<div class="section-separator-figure"></div>
+{% endblock content %}

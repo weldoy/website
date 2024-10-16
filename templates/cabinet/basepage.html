@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>База данных</title>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container_auth box_update_bd">
+    <h2 class="authnamecon newnameicobd">База данных</h2>
+    <a href="{{ url_for('personal') }}" class="auth-register-btn">Вернуться назад</a>
+    <div class="bd_box_of_goods">
+        {% if goods %}
+            {% for el in goods %}
+            <div class="goods">
+                <p>ID товара -<strong>{{ el.product_id }}</strong></p>
+                <p>Товар -<strong>{{ el.product }}</strong></p>
+                <p>Категория -<strong>{{ el.collection }}</strong></p>
+                <p>Цена -<strong>{{ el.product_price }} руб</strong></p>
+                <p>Дата -<strong>{{ el.date.strftime('%d/%m/%Y, %H:%M:%S') }}</strong></p>
+                <p><a href="/basepage/{{ el.product_id }}/complete" class="completebtn">Удалить</a></p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="goods goodscenter">
+                <p>Товаров в базе данных пока нет</p>
+            </div>
+        {% endif %}
+        
+    </div>
+</div>
+<div class="section-separator-figure"></div>
+{% endblock content %}

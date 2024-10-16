@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="assorti">
+    <h2>Каталог</h2>
+</div>
+<div class="cardcontainer">
+    <article class="card">
+        <p>Футболки</p>
+        <a href="{{ url_for('tshirts') }}">
+            <img class="zoom-effect" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="футболки" height="250"></a>
+    </article>
+    <article class="card">
+        <p>Штаны</p>
+        <a href="{{ url_for('pants') }}">
+            <img class="zoom-effect" src="{{ url_for('static', filename='img/pants.jpg') }}" alt="Штаны | Брюки" height="250"></a>
+    </article>
+    <article class="card">
+        <p>Толстовки</p>
+        <a href="{{ url_for('hoodies') }}">
+            <img class="zoom-effect" src="{{ url_for('static', filename='img/hoodies.jpg') }}" alt="Толстовки" height="250"></a>
+    </article>
+    <article class="card">
+        <p>Нижнее белье</p>
+        <a href="{{ url_for('underwear') }}">
+            <img class="zoom-effect" src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="Нижнее белье" height="250"></a>
+    </article>
+</div>
+<nav>
+    <div class="navigation">
+        <div class="nav-cards quest">
+            <h3>Остались вопросы?</h3>
+            <p class="abcv">Мы рады ответить на любые вопросы ежедневно с 10:00 до 23:00</p>
+            <ul>
+                <li class="abcv">Позвоните на номер 8 (123) 456-78-90</li>
+                <li class="abcv">Задай вопрос менеджеру в <a class="atg" href="https://t.me/+e35Bnx9B03o4Mjg6">Телеграм</a></li>
+            </ul>
+        </div>
+        <div class="nav-cards">
+            <h3>Подпишитесь на рассылку!</h3>
+            <p class="abcv">Будьте в курсе всех раcпродаж, акций и новостей!</p>
+            <p class="abcv">Мы будем присылать вам только самое важное и интересное</p>
+            <p class="abcv">И не пропускайте свежие посты в наших социальных сетях</p>
+            <!--                                    -->
+            <form method="post">
+                <div class="wrapper">
+                    <input type="email" name="email" id="email" placeholder="Ваш email" required>
+                </div>
+                <button>></button>
+            </form>
+            <!--                                    -->
+            <a href="https://t.me/+e35Bnx9B03o4Mjg6"><img src="{{ url_for('static', filename='img/teleicon 32px.png') }}" alt="telegram"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/vk.png') }}" alt="vk"></a>
+            <a href=""><img src="{{ url_for('static', filename='img/wp.png') }}" alt="wp"></a>
+        </div>
+    </div>
+</nav>
+<div class="section-separator-figure"></div>
+{% endblock content %}

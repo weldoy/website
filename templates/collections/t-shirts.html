@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Футболки | unknxwn</title>
+{% endblock title %}
+
+{% block content %}
+<div class="collections"><h2>Футболки</h2></div>
+
+<div class="cardcontainer">
+
+    {% if goods %}
+        {% for el in goods %}
+            {% if el.collection == 'футболка' %}
+                <article class="card">
+                    <p>{{el.product}}</p>
+                    <a href="{{ el.product_id }}/proof">
+                        <img class="zoom-effect" src="{{ url_for('static', filename='img/t-shirts.jpg') }}" height="240"></a>
+                </article>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="poscentertext">
+            <p>Извините, товары данной категории пока отсутствуют</p>
+        </div>        
+    {% endif %}
+
+</div>
+{% endblock content %}

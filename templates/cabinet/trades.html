@@ -9,6 +9,17 @@
 <div class="container_auth box_update_bd">
     <h2 class="authnamecon newnameicobd usbd">Все заказы</h2>
     <a href="{{ url_for('personal') }}" class="auth-register-btn">Вернуться назад</a>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class=absflashes>
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
     <div class="bd_box_of_goods">
         {% if trade %}
             {% for el in trade %}

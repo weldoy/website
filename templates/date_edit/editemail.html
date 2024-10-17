@@ -13,7 +13,7 @@
         {% if user %}
         <div class="goods">
             <form id="editor" method="post" autocomplete="off" action="/users/{{ user.id }}/edit/email/complete">
-                <input class="auth-form" type="text" id="newemail" name="newemail" placeholder="Новая почта" required>
+                <input class="auth-form" type="email" id="newemail" name="newemail" placeholder="Новая почта" required>
                 <button class="completebtn editloginbtn" type="submit">Сохранить</button>
             </form>
         </div>

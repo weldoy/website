@@ -10,7 +10,15 @@
         <div class="assorti"><h2>{{ product.product }}</h2></div>
         <div class="cardcontainer">
             <article class="card">
-                <img src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="Футболка" height="270">
+                {% if product.collection == 'футболка' %}
+                    <img src="{{ url_for('static', filename='img/t-shirts.jpg') }}" alt="Футболка" height="270">
+                {% elif product.collection == 'кофта' %}
+                    <img src="{{ url_for('static', filename='img/hoodies.jpg') }}" alt="кофта" height="270">
+                {% elif product.collection == 'штаны' %}
+                    <img src="{{ url_for('static', filename='img/pants.jpg') }}" alt="штаны" height="270">
+                {% elif product.collection == 'белье' %}
+                    <img src="{{ url_for('static', filename='img/underwear.jpg') }}" alt="белье" height="270">
+                {% endif %}
             </article>
         </div>
         <div class="oryr">

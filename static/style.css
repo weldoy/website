@@ -539,15 +539,6 @@ footer p {
 	left: 15px;
 }
 
-.flashes {
-	position: absolute;
-	top: 275px;
-	color: rgb(68, 68, 68);
-	border: 1px solid rgb(156, 156, 156);
-	border-radius: 5px;
-	background-color: rgb(218, 218, 218);	
-}
-
 .personal-flex-box-info {
 	display: flex;
 	flex-wrap: wrap;
@@ -699,4 +690,39 @@ p strong {
 
 .color88 {
 	color: rgb(88, 88, 88);
+}
+
+.absflashes {
+	position: absolute;
+	top: 0;
+	z-index: 5;
+	color: rgb(68, 68, 68);
+	border: 1px solid rgb(156, 156, 156);
+	border-radius: 5px;
+	background-color: rgb(218, 218, 218);	
+  	left: 50%;
+  	transform: translate(-50%);
+	top: 5%;
+	animation: fade 4s ease forwards;
+}
+
+@keyframes fade {
+	from {
+	  opacity: 1;
+	  visibility: visible;
+	}
+	to {
+	  opacity: 0;
+	  visibility: hidden;
+	}
+  }
+
+.flashes {
+	position: absolute;
+	top: 275px;
+	color: rgb(68, 68, 68);
+	border: 1px solid rgb(156, 156, 156);
+	border-radius: 5px;
+	background-color: rgb(218, 218, 218);	
+	animation: fade 4s ease forwards;
 }

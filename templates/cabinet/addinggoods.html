@@ -9,14 +9,14 @@
     <h2 class="authnamecon">Запись товара</h2>
     <a href="{{ url_for('personal') }}" class="auth-register-btn">Вернуться назад</a>
     {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class=flashes>
-                    {% for message in messages %}
-                    <p>{{ message }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
+        {% if messages %}
+            <div class=flashes>
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
     <form id="admin" method="post" autocomplete="off">
         <input class="auth-form" type="text" name="goodsname" placeholder="Название" required>
         <label class="choosecollect" for="collection">Выберите категорию :</label>

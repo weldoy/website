@@ -198,6 +198,7 @@ def complete_task(id):
         try:
             db.session.delete(goods)
             db.session.commit()
+            flash('Товар удален!')
             return redirect('/basepage')
         except:
             return 'Произошла ошибка при удалении товара'
@@ -232,6 +233,7 @@ def delete_user(id):
         try:
             db.session.delete(users)
             db.session.commit()
+            flash('Пользователь удален!')
             return redirect('/users')
         except:
             return 'Произошла ошибка при удалении пользователя'
@@ -285,6 +287,7 @@ def editcomplete(id):
             else:
                 db.session.query(User).filter(User.login == user.login).update({User.login : newlogin.replace(' ', '')})
                 db.session.commit()
+        flash('Логин изменен!')
         return redirect(url_for('users'))
 
 
@@ -324,6 +327,7 @@ def editemailcomplete(id):
             else:
                 db.session.query(User).filter(User.email == user.email).update({User.email : newemail.replace(' ', '')})
                 db.session.commit()
+        flash('Почта изменена!')
         return redirect(url_for('users'))
 
 
@@ -362,6 +366,7 @@ def editstatuscomplete(id):
                 db.session.commit()
             else:
                 pass
+        flash('Статус изменен!')
         return redirect(url_for('users'))
 
 
@@ -390,6 +395,7 @@ def delete_trade(trade_id):
         try:
             db.session.delete(trade)
             db.session.commit()
+            flash('Заказ удален!')
             return redirect('/trades')
         except:
             return 'Произошла ошибка при удалении заказа'
@@ -419,5 +425,14 @@ def proof_success(product_id):
 
         db.session.add(new_trade)
         db.session.commit()
-        return redirect(url_for('tshirts'))
-    return redirect(url_for('tshirts'))
+        flash('Заказ создан!')
+
+        if product.collection == 'футболка':
+            return redirect(url_for('tshirts'))
+        elif product.collection == 'штаны':
+            return redirect(url_for('pants'))
+        elif product.collection == 'кофта':
+            return redirect(url_for('hoodies'))
+        elif product.collection == 'белье':
+            return redirect(url_for('underwear'))
+    return redirect(url_for('index'))

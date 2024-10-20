@@ -64,7 +64,8 @@ def login():
             login_user(user)
         
             next_page = request.args.get('next', 1)
-
+            
+            flash('Успешная авторизация!')
             return redirect(next_page)
         else:
             flash('Неправильный логин или пароль')
@@ -78,6 +79,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash('Выход из аккаунта!')
     return redirect(url_for('index'))
 
 
@@ -121,6 +123,7 @@ def register():
             else:
                 pass
 
+            flash('Успешная регистрация!')
             return redirect(url_for('login'))
 
     return render_template('register.html')

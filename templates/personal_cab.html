@@ -5,6 +5,17 @@
 {% endblock title %}
 
 {% block content %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class=absflashes>
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
     <h2 class="namepersonalpage">Личный кабинет</h2>
     <style>
         .namepersonalpage {

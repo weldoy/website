@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class=absflashes>
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
 <div class="assorti">
     <h2>Каталог</h2>
 </div>

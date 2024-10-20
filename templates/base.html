@@ -7,6 +7,7 @@
         <title> unknxwn </title>
         {% endblock title %}
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
     </head>
 {% endblock head %}
 <body>
@@ -15,34 +16,26 @@
         <div class="headdiv">
             <div class="buttons_headdiv"><a href="{{ url_for('index') }}">Главная</a></div>
             <h1 class="headdiv_name">unknxwn shop</h1>
-            <div class="buttons_headdiv"><a href="{{ url_for('order') }}">Корзина</a></div>
+
+            <div class="dropdown buttons_headdiv">
+                <a onclick="myFunction()" class="dropbtn">Профиль</a>
+
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="{{ url_for('personal') }}">Профиль</a>
+                    <a href="{{ url_for('order') }}">Корзина</a>
+                    <a href="{{ url_for('trades') }}">Заказы</a>
+                  </div>
+            </div>
+
         </div>
         {% endblock header%}
 
-            {% block cart %}
-                <div class="modal" id="my-modal">
-                    <div class="modal__box">
-                        <button class="modal__close-btn" id="close-my-modal-btn">
-                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
-                                    fill="#333333" />
-                                <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
-                            </svg>
-                        </button>
-                        <h2>Корзина</h2>
-            
-                        <p>Здесь вскоре будут находиться ваши покупки :)</p>
-                    </div>
-                </div>
-                <script src="{{ url_for('static', filename='index.js') }}"></script>
-            {% endblock cart %}
-
-            {% block content%}{% endblock content%}
+        {% block content%}{% endblock content%}
+        
     </main>
 {% block footer %}
     <footer class="flex-footer">
         <p class="footer-name">&copy; 2024 интернет магазин unknxwn</p>
-        <a href="{{ url_for('personal') }}" class="footer-log">Личный кабинет</a>
     </footer>
 {% endblock footer %}
 </body>

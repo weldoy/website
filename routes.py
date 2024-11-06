@@ -439,3 +439,11 @@ def proof_success(product_id):
         elif product.collection == 'белье':
             return redirect(url_for('underwear'))
     return redirect(url_for('index'))
+
+
+@app.route('/yourtrades', methods=["GET", "POST"])
+@login_required
+def yourtrades():
+    trade = Trade.query.order_by(Trade.trade_date.desc()).all()
+
+    return render_template('cabinet/yourtrades.html', trade=trade)

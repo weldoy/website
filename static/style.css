@@ -660,6 +660,9 @@ p strong {
 	border-radius: 8%;
 	background-color: rgb(53, 53, 53);
 	cursor: pointer;
+	width: 105px;
+	height: 40px;
+	overflow: hidden;
 }
 
 .headdiv a {
@@ -694,3 +697,13 @@ p strong {
 .show {display: block;}
 
 /* ----------------------- */
+
+.menubtnstyle {
+	padding: 0;
+	position: relative;
+	bottom: 10px;
+	left: 7px;
+	width: 45px;
+	height: 35px;
+}
+

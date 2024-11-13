@@ -105,6 +105,8 @@ def register():
             flash('Пожалуйста заполните поля')
         elif password != password2:
             flash('Пароли не совпадают')
+        elif len(password) < 8:
+            flash('Длина пароля меньше 8 символов!')
         elif login in login_list:
             flash('Такой логин уже существует!')
         elif email in email_list:

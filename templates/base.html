@@ -18,7 +18,8 @@
             <h1 class="headdiv_name">unknxwn shop</h1>
 
             <div class="dropdown buttons_headdiv">
-                <a onclick="myFunction()" class="dropbtn">Профиль</a>
+                <!-- <a onclick="myFunction()" class="dropbtn">Профиль</a> -->
+                <a onclick="myFunction()" class="dropbtn"><img class='menubtnstyle' src="{{ url_for('static', filename='img/menuicon.png') }}"></a>
 
                 <div id="myDropdown" class="dropdown-content">
                     <a href="{{ url_for('personal') }}">Профиль</a>

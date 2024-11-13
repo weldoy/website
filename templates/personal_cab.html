@@ -26,15 +26,12 @@
         <img class="my_avatar" src="{{ current_user.avatar(128) }}" alt="Аватарка">
         <div class="personal-flex-box-info">  
             <p>Ваше имя профиля - {{current_user.login}} </p>
-            <p>Ваш id профиля - {{current_user.id}} - </p>
             <p>Ваш email - {{current_user.email}}</p>
-            <p>Статус - 
-                {% if current_user.admin == False %}
-                    Пользователь
-                {% else %}
-                    Админ
-                {% endif %}
-            </p>
+            {% if current_user.admin == True %}
+                <p>Ваш id профиля - {{current_user.id}} - </p>
+                <p>Статус - Админ</p>
+            {% else %}
+            {% endif %}
             <p>
                 <form action="" class="changeimage">
                     <input type="file" name="" id="">
